@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang='en' dir='auto'><head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='Have you ever desired to host your own personal blog, or a website to showcase your work, for free? All this while taking advantage of a globally distributed CDN to speed up the site&rsquo;s delivery to your visitors?
+ Github Pages gives us exactly that!! It give us the ability to host static content (blog/website) for free. We can use that to showcase our work, highlight our achievements, share our resume, setup our personal blog, etc.'>
+<meta name='theme-color' content='#ffcd00'>
+
+<meta property='og:title' content='Using Gitlab&#39;s free private repo and CI/CD to deploy a static site to Github Pages for free • just... Playing Around'>
+<meta property='og:description' content='Have you ever desired to host your own personal blog, or a website to showcase your work, for free? All this while taking advantage of a globally distributed CDN to speed up the site&rsquo;s delivery to your visitors?
+ Github Pages gives us exactly that!! It give us the ability to host static content (blog/website) for free. We can use that to showcase our work, highlight our achievements, share our resume, setup our personal blog, etc.'>
+<meta property='og:url' content='https://www.playingaround-dev.github.io/posts/private-repo-gitlab-cicd-github-pages/'>
+<meta property='og:site_name' content='just... Playing Around'>
+<meta property='og:type' content='article'><meta property='article:section' content='posts'><meta property='article:published_time' content='2021-02-05T21:00:00&#43;05:30'/><meta property='article:modified_time' content='2021-02-05T21:00:00&#43;05:30'/><meta name='twitter:card' content='summary'>
+
+<meta name="generator" content="Hugo 0.80.0" />
+
+  <title>Using Gitlab&#39;s free private repo and CI/CD to deploy a static site to Github Pages for free • just... Playing Around</title>
+  <link rel='canonical' href='https://www.playingaround-dev.github.io/posts/private-repo-gitlab-cicd-github-pages/'>
+  
+  
+  <link rel='icon' href='/favicon.ico'>
+<link rel='stylesheet' href='/assets/css/main.ab98e12b.css'><link rel='stylesheet' href='/css/custom.css'><style>
+:root{--color-accent:#ffcd00;}
+</style>
+
+  
+
+</head>
+<body class='page type-posts has-sidebar'>
+
+  <div class='site'><div id='sidebar' class='sidebar'>
+  <a class='screen-reader-text' href='#main-menu'>Skip to Main Menu</a>
+
+  <div class='container'><section class='widget widget-about sep-after'>
+  <header>
+    
+    <div class='logo'>
+      <a href='/'>
+        <img src='/images/logo.png'>
+      </a>
+    </div>
+    
+    <h2 class='title site-title '>
+      <a href='/'>
+      just... Playing Around
+      </a>
+    </h2>
+    <div class='desc'>
+    
+    </div>
+  </header>
+
+</section>
+<section class='widget widget-taxonomy_cloud sep-after'>
+  <header>
+    <h4 class='title widget-title'>Tags</h4>
+  </header>
+
+  <div class='container list-container'>
+  <ul class='list taxonomy-cloud'><span>Not a single Tag!</span></ul>
+</div>
+
+
+</section>
+</div>
+
+  <div class='sidebar-overlay'></div>
+</div><div class='main'><nav id='main-menu' class='menu main-menu' aria-label='Main Menu'>
+  <div class='container'>
+    <a class='screen-reader-text' href='#content'>Skip to Content</a>
+
+<button id='sidebar-toggler' class='sidebar-toggler' aria-controls='sidebar'>
+  <span class='screen-reader-text'>Toggle Sidebar</span>
+  <span class='open'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <line x1="3" y1="12" x2="21" y2="12" />
+  <line x1="3" y1="6" x2="21" y2="6" />
+  <line x1="3" y1="18" x2="21" y2="18" />
+
+</svg>
+</span>
+  <span class='close'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <line x1="18" y1="6" x2="6" y2="18" />
+  <line x1="6" y1="6" x2="18" y2="18" />
+
+</svg>
+</span>
+</button>
+    <ul><li class='item'>
+        <a href=''></a>
+      </li><li class='item'>
+        <a href='/about/'>About Me</a>
+      </li></ul>
+  </div>
+</nav><div class='header-widgets'>
+        <div class='container'></div>
+      </div>
+
+      <header id='header' class='header site-header'>
+        <div class='container sep-after'>
+          <div class='header-info'><p class='site-title title'>just... Playing Around</p><p class='desc site-desc'></p>
+          </div>
+        </div>
+      </header>
+
+      <main id='content'>
+
+
+<article lang='en' class='entry'>
+  <header class='header entry-header'>
+  <div class='container sep-after'>
+    <div class='header-info'>
+      <h1 class='title'>Using Gitlab&#39;s free private repo and CI/CD to deploy a static site to Github Pages for free</h1>
+      
+
+    </div>
+    <div class='entry-meta'>
+  <span class='posted-on'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+
+</svg>
+<span class='screen-reader-text'>Posted on </span>
+  <time class='entry-date' datetime='2021-02-05T21:00:00&#43;05:30'>2021, Feb 05</time>
+</span>
+
+  
+  
+<span class='reading-time'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/>
+
+</svg>
+10 mins read
+</span>
+
+
+</div>
+
+
+  </div>
+</header>
+
+  
+  
+
+  <div class='container entry-content'>
+  <p>Have you ever desired to host your own personal blog, or a website to showcase your work, for free? All this while
+taking advantage of a globally distributed CDN to speed up the site&rsquo;s delivery to your visitors?</p>
+<hr>
+<p><a href="https://pages.github.com/"><strong>Github Pages</strong></a> gives us exactly that!! It give us the ability to host static content (blog/website) for free. We can use that to showcase our work, highlight our achievements, share our resume, setup our personal blog, etc..</p>
+<p>We can even use our own custom domain with the site 😎.</p>
+<p>All this looks pretty cool. And considering you don&rsquo;t have to spare a penny on it, makes it even more awesome.</p>
+<p>So, what&rsquo;s the problem here? ¯\_(ツ)_/¯</p>
+<p>Well, the problem is if you&rsquo;re on Github&rsquo;s free plan, then the repo holding your site&rsquo;s content needs to be <strong>public</strong>.
+It&rsquo;s all OK if you are creating those static files (js, css, html) manually. But becomes problematic if you&rsquo;re using
+any <strong>static site generator</strong> (like <a href="https://jekyllrb.com/"><em>Jekyll</em></a>, <a href="https://gohugo.io/"><em>Hugo</em></a>, <a href="https://www.mkdocs.org/"><em>MkDocs</em></a>, etc.).</p>
+<p>As much as there&rsquo;s no harm in hosting your site&rsquo;s <strong>public</strong> content on a public repo (js, css, html, images, etc.),
+hosting the <code>input</code> to your <em>site-geneator</em> is not advisable.</p>
+<p>Why? Because it&rsquo;s part of your development workflow. It might contain <em>unfinished content</em>, <em>environment variables</em>, <em>secret keys</em>, <em>tokens</em>, <em>metadata</em>, etc..
+You certainly don&rsquo;t want random people to be looking at such stuff, right?</p>
+<hr>
+<p>This is what this post is all about. Keeping your source files (your site-generator&rsquo;s input files) hidden, while exposing only the generated files.</p>
+<p>All this with <strong>one-click change deployments</strong>!!!</p>
+<hr>
+<p>We&rsquo;ll learn how to use a <strong>private repo</strong> hosted on <a href="https://about.gitlab.com/"><em>Gitlab</em></a>, along with it&rsquo;s CI/CD pipeline to automate the publishing of our site&rsquo;s content (generated by your favorite static site generator)&hellip; all in <strong>one single git push</strong> !!! How awesome that is 😎.</p>
+<h5 id="what-all-well-do">What all we&rsquo;ll do</h5>
+<ol>
+<li>We&rsquo;ll be setting up a <strong>personal blog website</strong>.</li>
+<li>We&rsquo;ll use <a href="https://gohugo.io/"><strong>Hugo</strong></a> as our static site generator. If you don&rsquo;t know about
+it, do read about it a bit. It&rsquo;s pretty awesome!</li>
+<li>We&rsquo;ll use one of the many, many freely available Hugo <strong>themes</strong>, called <a href="https://themes.gohugo.io/minimo/"><strong>minimo</strong></a>, to beautify our blog. It&rsquo;s a simple, but good looking theme.</li>
+<li>Finally, we&rsquo;ll setup <strong>custom domain</strong> with the hosted site.</li>
+</ol>
+<hr>
+<h3 id="creating-accounts">Creating accounts</h3>
+<h5 id="a-private-repo-on-gitlab-to-hold-our-sites-source">A. Private repo on gitlab to hold our site&rsquo;s source</h5>
+<ol>
+<li>Go to <a href="https://about.gitlab.com/"><em>gitlab</em></a> and create a new account, or use an existing one if you have</li>
+<li>Create a new repo to host your site-generator&rsquo;s files. Let&rsquo;s call this repo as <strong>site-source</strong></li>
+<li>Now clone this repo locally using <code>git clone</code></li>
+<li>Follow <a href="https://gohugo.io/getting-started/quick-start/">hugo quickstart</a> to setup base files. Make sure that all files are created in top-level cloned directory, and not a sub-directory</li>
+<li>We now have the base ready to save our site&rsquo;s source files (these will be read by static site-generator)</li>
+</ol>
+<h5 id="b-public-repo-on-github-to-hold-generated-files">B. Public repo on github to hold generated files</h5>
+<ol>
+<li>Go to github and create a new account, or use an existing one if you have</li>
+<li>Create a new repo named <code>username.github.io</code> where <code>username</code> is your github account&rsquo;s username. <strong>Note:</strong> It&rsquo;s important to add <code>.github.io</code> in this repo name to be able to use this for static site hosting</li>
+<li>Go to repo&rsquo;s settings page and locate a section named <code>GitHub Pages </code>. Now choose the branch (<code>master</code> or <code>main</code>) and root (keep it <code>/</code> for now). Also, check the <code>Enforce HTTPS</code> checkbox. Leave <code>custom domain</code> input empty for now. We&rsquo;ll come back to this later</li>
+</ol>
+<h3 id="preparing-for-cicd">Preparing for CI/CD</h3>
+<ol>
+<li>Go to your <code>gitlab</code> repo (<strong>site-source</strong>), scroll down on left menu and choose <code>Settings -&gt; CI / CD</code>.</li>
+<li>Expand <code>Variables</code> section.</li>
+<li>Now we will add a new <code>github</code> (it&rsquo;s github, not gitlab) token here. This will be used by our CI/CD pipeline (in gitlab) to push generated site to our <code>username.github.io</code> repo on github.</li>
+<li>To create a new token on github, visit this link: <a href="https://github.com/settings/tokens">https://github.com/settings/tokens</a></li>
+<li>Click <code>generate new token</code> and choose all scopes under <code>repo</code> section. Finally, click <code>generate token</code>. Your new token will be dislayed on screen. <em>Note this down safely. This will not be displayed again</em>.</li>
+<li>Now come back to gitlab, and add a new variable named <code>GITHUB_ACCESS_TOKEN</code> with value of the generated token. Click <code>Add Variable</code> to save it.</li>
+<li>At this point our CI/CD pipeline is ready to do work.</li>
+</ol>
+<h3 id="setting-up-gitlab-cicd-configuration-file">Setting-up Gitlab CI/CD configuration file</h3>
+<ol>
+<li>Gitlab (or any other CI/CD provider for that matter) makes use of a configuration file which tells the build server <code>what</code> and <code>how</code> to build the <code>artifact(s)</code>.</li>
+<li><code>Artifact</code> can be your generated site (as in this case), or compiled code, or anything else that can be deployed to be used by your intended audience.</li>
+<li>Build servers generally use <code>yaml</code>, <code>toml</code> or <code>json</code> formats for these files.</li>
+<li>We&rsquo;ll use following <code>.gitlab-ci.yml</code> file for our purpose:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">image</span>: <span style="color:#ae81ff">freakynit/hugo-cicd-docker:1.0.4</span>
+
+<span style="color:#f92672">before_script</span>:
+  - <span style="color:#ae81ff">hugo version</span>
+
+<span style="color:#f92672">github_pages</span>:
+  <span style="color:#f92672">script</span>:
+    - <span style="color:#ae81ff">rm -rf public</span>
+    - <span style="color:#ae81ff">git clone --depth 1 https://GITHUB_USERNAME:$GITHUB_ACCESS_TOKEN@github.com/GITHUB_USERNAME/GITHUB_USERNAME.github.io.git public</span>
+    - <span style="color:#ae81ff">hugo --config config.toml</span>
+    - <span style="color:#ae81ff">cd public</span>
+    - <span style="color:#ae81ff">git config user.email &#34;GITHUB_EMAIL&#34;</span>
+    - <span style="color:#ae81ff">git config --global user.name &#34;GITHUB_USER_FULLNAME&#34;</span>
+    - <span style="color:#ae81ff">git add -A</span>
+    - <span style="color:#ae81ff">git commit -m &#34;Build from $CI_SERVER_NAME $CI_PIPELINE_ID&#34;</span>
+    - <span style="color:#ae81ff">git push</span>
+  <span style="color:#f92672">artifacts</span>:
+    <span style="color:#f92672">paths</span>:
+      - <span style="color:#ae81ff">public</span>
+  <span style="color:#f92672">only</span>:
+    - <span style="color:#ae81ff">master</span>
+</code></pre></div><ol start="5">
+<li>Make sure to replace <strong>GITHUB_USERNAME</strong> with your github username, <strong>GITHUB_EMAIL</strong> with your github email, and <strong>GITHUB_USER_FULLNAME</strong> with your full name.</li>
+<li><strong>Note:</strong> DO NOT replace any variable that starts with <code>$</code> (for example <code>$GITHUB_ACCESS_TOKEN</code>). These are replaced by gitlab&rsquo;s build server while running the pipeline. It makes use of variables we have created earlier in our gitlab repo&rsquo;s <code>Variables</code> section in settings.</li>
+</ol>
+<h3 id="cicd-file-explanation">CI/CD file explanation</h3>
+<blockquote>
+<p>The first and a very important thing to understand is that the build config file is run in the context of the current project. The current working directly, when build is running, is your repo&rsquo;s root directory, i.e., top-level-directory. Thus, full source code is available to any command which can refer a file on local build box (generally a docker container these days)</p>
+</blockquote>
+<ol>
+<li>The first line:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">image: freakynit/hugo-cicd-docker:1.0.4
+</code></pre></div><p>tells gitlab&rsquo;s build server to use <code>hugo-cicd-docker</code> docker image to run our build pipeline. This docker image already includes the current latest version (<code>0.80.0</code>) of hugo. It also includes <code>git</code> and <code>shell</code> utilities to help us with our build process. You can see the contents of the <code>Dockerfile</code> used to generate this docker image here <a href="https://hub.docker.com/layers/136359589/freakynit/hugo-cicd-docker/1.0.4/images/sha256-09782148b3ed0aac7db88f0709defc5d83547dd32f3dd24ff1330efb5b5f334a?context=explore">freakynit/hugo-cicd-docker:1.0.4</a></p>
+<ol start="2">
+<li>Lines:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">before_script:
+  - hugo version
+</code></pre></div><p>tells build server to run an array of commands, that should run before each build job. We&rsquo;ll come to <code>build jobs</code> just in a while. You can read more about it here: <a href="https://docs.gitlab.com/ee/ci/yaml/#before_script">before_script</a>. In this case it simply executes the command <code>hugo version</code> which just prints hugo&rsquo;s version on stdout</p>
+<ol start="3">
+<li>Line:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">github_pages:
+</code></pre></div><p>defines a <code>build job</code>. A build job is what builds artifacts (mostly). It&rsquo;s a generic name and can be any valid string. The same is displayed on gitlab&rsquo;s CI/CD pipelines page when a pipeline is running.</p>
+<ol start="4">
+<li>Line:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">script:
+</code></pre></div><p>after <code>github_pages:</code> tells our build server that the following lines are commands that needs to be executed one after the other.</p>
+<ol start="5">
+<li>Build commands:
+<ul>
+<li>
+<ol>
+<li><code>rm -rf public</code> -&gt; remove existing <code>public</code> directory, if any. This directory gets created when we run our static site generator, and it holds generated site.</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li><code>git clone --depth 1 ...</code> -&gt; clone (checkout) our public github repo (<code>username.github.io</code>) to local filesystem, in <code>public</code> directory</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li><code>hugo --config config.toml</code> -&gt; run our site-generator with <code>config.toml</code> (hugo&rsquo;s own configuration file) to generate our site&rsquo;s public-facing content. The generated content is by default placed in <code>public</code> directory. This config can be overwritten in hugo&rsquo;s config file (<code>config.toml</code>). See hugo&rsquo;s documentation on how to customize hugo&rsquo;s builds</li>
+</ol>
+</li>
+<li>
+<ol start="4">
+<li><code>cd public</code> -&gt; switch to hugo-generated site&rsquo;s root directory (<code>public</code>)</li>
+</ol>
+</li>
+<li>
+<ol start="5">
+<li><code>git config user.email &quot;GITHUB_EMAIL&quot;</code> -&gt; configure git to use this email</li>
+</ol>
+</li>
+<li>
+<ol start="6">
+<li><code>git config --global user.name &quot;GITHUB_USER_FULLNAME&quot;</code> -&gt; configure username</li>
+</ol>
+</li>
+<li>
+<ol start="7">
+<li><code>git add -A</code> -&gt; add all changed files. Remember?&hellip; The public directory actually is a git checkout-out (cloned) repo? It contains content from our previous build (if any previous build was run, or content was manually pushed). When we ran <code>hugo --config config.toml</code> command in step 3 above, it might have updated some files, added or deleted others. Thus, all these changes needs to be captured before pushing to our public repo on github</li>
+</ol>
+</li>
+<li>
+<ol start="8">
+<li><code>git commit -m &quot;Build from $CI_SERVER_NAME $CI_PIPELINE_ID&quot;</code> -&gt; add commit message. <code>CI_SERVER_NAME</code> and <code>CI_PIPELINE_ID</code> variables are supplied by default to our build runner by gitlab&rsquo;s  build infrastructure. See gitlab&rsquo;s documentation for other such variables: <a href="https://docs.gitlab.com/ee/ci/variables/predefined_variables.html">predefined environment variables</a></li>
+</ol>
+</li>
+<li>
+<ol start="9">
+<li><code>git push</code> -&gt; push the generated site content to our github&rsquo;s public repo</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<p><!-- raw HTML omitted -->
+6. Lines:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">artifacts:
+    paths:
+      - public
+</code></pre></div><p>tells our build server that artifacts (generated site content in our case) are generated in public directory. Build servers generally provde the ability to save generated artifacts for a pre-configured number of days. This is helpful when you want to rollback to a previous build in case your current one fails.</p>
+<ol start="7">
+<li>The last section:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">only:
+    - master
+
+</code></pre></div><p>tells our build server to <code>only</code> run the build pipeline when a commit is pushed to <code>master</code> branch. This allows us to work on multiple features in different branches without triggering unnecessary builds for not-yet-completed features.</p>
+<h3 id="visiting-our-site">Visiting our site</h3>
+<ol>
+<li>Go to <code>https://username.github.com</code> to see your site live. Note that it might take a few minutes to reflect the changes. To verify wheter the latest site content in successfully pushed to our repo or not, go to your github repo&rsquo;s <code>commits</code> section. See when was the last commit pushed. It should be after around when your build pipeline on gitlab ended. If this is not the case, there must be some error. Check pipeline&rsquo;s build logs.</li>
+</ol>
+<h3 id="adding-custom-domain">Adding custom domain</h3>
+<ol>
+<li>Purchase a new domain if you don&rsquo;t have one handly. You can use <code>namecheap</code>(my personal favorite), or <code>godaddy</code> (pretty popular alternative). There are hundreds of other providers too. Use google to find your preferred one.</li>
+<li>Go to your domain&rsquo;s dns settings page. You&rsquo;ll need to create 4 (1 will also work) type <code>A</code> records, and 1 <code>cname</code> record.</li>
+<li>Add following targets for <code>A</code> records:
+<ul>
+<li>
+<ol>
+<li><code>185.199.108.153</code></li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li><code>185.199.109.153</code></li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li><code>185.199.110.153</code></li>
+</ol>
+</li>
+<li>
+<ol start="4">
+<li><code>185.199.111.153</code></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>For <code>cname</code>, add host <code>www</code> with target: <code>username.github.io</code>. Make sure to replace <code>username</code> with your github username.</li>
+<li>Come back to your github repo&rsquo;s <code>settings</code> -&gt; <code>github pages</code> section and add the same domain name in <code>custom domain</code> section. Also, make sure <code>Enforce HTTPS</code> is checked.</li>
+<li>Now wait for a few minutes to a few hours, or even an entire day. This update can take time. If this is still not working after 24 hours, you&rsquo;ll need to contact your domain registrar.</li>
+</ol>
+<hr>
+<h3 id="extra-stuff">Extra stuff</h3>
+<h5 id="a-little-guide-on-setting-up-hugo">A little guide on setting up hugo</h5>
+<blockquote>
+<p><strong>Note:</strong> It&rsquo;s better to follow hugo&rsquo;s official <a href="https://gohugo.io/getting-started/quick-start/">quickstart</a>. This is provided just for easy reference, and may not be the best quiskstart to start with hugo</p>
+</blockquote>
+<h5 id="1-hugo-quiskstarthttpsgohugoiogetting-startedquick-start">1. <a href="https://gohugo.io/getting-started/quick-start/">Hugo Quiskstart</a></h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">hugo new site sample-hugo-site-source
+cd sample-hugo-site-source
+git init
+git remote add origin &lt;YOUR GITLAB RPEO<span style="color:#960050;background-color:#1e0010">&#39;</span>S URL&gt;
+</code></pre></div><h5 id="2-minimo-themehttpsminimonetlifyappdocsinstallation">2. <a href="https://minimo.netlify.app/docs/installation/">Minimo Theme</a></h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">  git submodule add https://github.com/MunifTanjim/minimo themes/minimo
+
+  git submodule init
+  git submodule update
+
+  cp themes/minimo/exampleSite/config.toml .
+
+  hugo new posts/my-first-post.md
+
+  <span style="color:#75715e"># Now add some content to above page (note that it&#39;s in &#34;content/posts&#34; directory)</span>
+  <span style="color:#75715e"># save the file</span>
+  <span style="color:#75715e"># start server in hot-reload mode</span>
+
+  hugo server -D
+
+  <span style="color:#75715e"># visit http://localhost:1313/</span>
+</code></pre></div><h5 id="3-changes-to-configtoml">3. Changes to config.toml</h5>
+<ol>
+<li><code>baseURL</code> -&gt; Your site&rsquo;s url (<a href="https://username.github.io">https://username.github.io</a> OR https://your_custom_domain)</li>
+<li><code>title</code> -&gt; Title of your site</li>
+<li>Add <code>staticDir = [&quot;static&quot;]</code> after <code>theme</code></li>
+<li><code>description</code> under <code>params.info</code> section -&gt; description shown on your site</li>
+<li>Adjust <code>params.copyright</code> section if needed</li>
+<li>You can play around more such settings. Refer hugo&rsquo;s official docs for this</li>
+</ol>
+<h5 id="4-add-gitlab-ciyml-file-as-described-before">4. Add <code>.gitlab-ci.yml</code> file as described before</h5>
+<h5 id="5-commit-and-push-the-changes">5. Commit and push the changes</h5>
+<blockquote>
+<p>Make sure that section <strong>Preparing for CI/CD</strong> has been completed</p>
+</blockquote>
+<hr>
+<p>That&rsquo;s all folks ¯\<em>(ツ)</em>/¯</p>
+<p>Drop me a mail at <code>nitinbansal85@gmail.com</code> or DM me on <a href="https://twitter.com/9wxg1">twitter</a> if you have any questions or need help on any step.</p>
+
+</div>
+
+  
+<footer class='entry-footer'>
+  <div class='container sep-before'>
+  </div>
+</footer>
+
+
+</article>
+
+
+
+
+      </main>
+
+      <footer id='footer' class='footer'>
+        <div class='container sep-before'><section class='widget widget-social_menu sep-after'><nav aria-label='Social Menu'>
+    <ul><li>
+        <a href='https://github.com/playingaround-dev' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Github account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+
+</svg>
+</a>
+      </li><li>
+        <a href='https://twitter.com/9wxg1' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Twitter account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <title>Twitter icon</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+
+</svg>
+</a>
+      </li><li>
+        <a href='mailto:nitinbansal85@gmail.com' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Contact via Email</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline>
+</svg>
+</a>
+      </li><li>
+        <a href='https://linkedin.com/in/nitinbansal85' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Linkedin account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+      </li></ul>
+  </nav>
+</section><div class='copyright'>
+  <p> &copy; 2021 Nitin Bansal </p>
+</div>
+
+        </div>
+      </footer>
+
+    </div>
+  </div><script>window.__assets_js_src="/assets/js/"</script>
+
+<script src='/assets/js/main.c3bcf2df.js'></script><script src='/js/custom.js'></script>
+
+</body>
+
+</html>
+

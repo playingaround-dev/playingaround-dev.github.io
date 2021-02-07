@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>just... Playing Around</title>
+    <link>https://www.playingaround-dev.github.io/</link>
+    <description>Recent content on just... Playing Around</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 05 Feb 2021 21:00:00 +0530</lastBuildDate><atom:link href="https://www.playingaround-dev.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using Gitlab&#39;s free private repo and CI/CD to deploy a static site to Github Pages for free</title>
+      <link>https://www.playingaround-dev.github.io/posts/private-repo-gitlab-cicd-github-pages/</link>
+      <pubDate>Fri, 05 Feb 2021 21:00:00 +0530</pubDate>
+      
+      <guid>https://www.playingaround-dev.github.io/posts/private-repo-gitlab-cicd-github-pages/</guid>
+      <description>Have you ever desired to host your own personal blog, or a website to showcase your work, for free? All this while taking advantage of a globally distributed CDN to speed up the site&amp;rsquo;s delivery to your visitors?
+ Github Pages gives us exactly that!! It give us the ability to host static content (blog/website) for free. We can use that to showcase our work, highlight our achievements, share our resume, setup our personal blog, etc.</description>
+    </item>
+    
+    <item>
+      <title>About Me</title>
+      <link>https://www.playingaround-dev.github.io/about/</link>
+      <pubDate>Thu, 04 Feb 2021 23:56:33 +0530</pubDate>
+      
+      <guid>https://www.playingaround-dev.github.io/about/</guid>
+      <description>Hi there, Nice to meet you. My name is Nitin Bansal. I&amp;rsquo;m from Punjab, India.
+ Professionaly, I mostly work on distributed systems. Occasionally I have worked on other systems too, mainly on the dashboard side.
+Technologies that I have worked with include: Java, Kafka, BigQuery, MongoDB, Redis, Cassandra, Elasticsearch, Jenkins, Docker, Kubernetes, Python, NodeJS, Javascript, AWS, Numpy, Pandas, Apache Airflow, Apache Spark, and more.
+ On personal side, I&amp;rsquo;m deeply interested in technology.</description>
+    </item>
+    
+  </channel>
+</rss>
