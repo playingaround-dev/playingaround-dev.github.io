@@ -7,12 +7,14 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sun, 07 Feb 2021 01:00:00 +0530</lastBuildDate><atom:link href="https://www.playingaround-dev.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Learning from 10&#43; years of software programming</title>
+      <title>A few of the learnings from my 10&#43; years of software programming experience</title>
       <link>https://www.playingaround-dev.github.io/posts/learnings-from-10-years-of-programming/</link>
       <pubDate>Sun, 07 Feb 2021 01:00:00 +0530</pubDate>
       
       <guid>https://www.playingaround-dev.github.io/posts/learnings-from-10-years-of-programming/</guid>
-      <description>Make sure to know your tools very well before you start off using them. Know all/most of their default configurations, settings, as well as understand what implication tweaking any of these has on overall system, as well as other parts of the system. Monitoring is a must. Make sure to have detailed insights into the workings of every system, at every second. Measure performance of every component of your system, and how much it can be overloaded, and for how long.</description>
+      <description>After being in this industry for more than a decade now, there are a huge set of learnings that I have gathered.
+From programming microprocessors in assembly language on a dedicated hardware programmer to working with on petabyte scale data pipelines, I have gained experience with many different paradigms of programming world.
+Also, from working in a small one-room startup to a global conglomerate, to starting my own, I have also experienced many different organizational aspects and how they shape the entire software development process.</description>
     </item>
     
     <item>

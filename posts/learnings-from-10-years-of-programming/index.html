@@ -2,18 +2,22 @@
 <html lang='en' dir='auto'><head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<meta name='description' content='Make sure to know your tools very well before you start off using them. Know all/most of their default configurations, settings, as well as understand what implication tweaking any of these has on overall system, as well as other parts of the system. Monitoring is a must. Make sure to have detailed insights into the workings of every system, at every second. Measure performance of every component of your system, and how much it can be overloaded, and for how long.'>
+<meta name='description' content='After being in this industry for more than a decade now, there are a huge set of learnings that I have gathered.
+From programming microprocessors in assembly language on a dedicated hardware programmer to working with on petabyte scale data pipelines, I have gained experience with many different paradigms of programming world.
+Also, from working in a small one-room startup to a global conglomerate, to starting my own, I have also experienced many different organizational aspects and how they shape the entire software development process.'>
 <meta name='theme-color' content='#ffcd00'>
 
-<meta property='og:title' content='Learning from 10&#43; years of software programming • just... Playing Around'>
-<meta property='og:description' content='Make sure to know your tools very well before you start off using them. Know all/most of their default configurations, settings, as well as understand what implication tweaking any of these has on overall system, as well as other parts of the system. Monitoring is a must. Make sure to have detailed insights into the workings of every system, at every second. Measure performance of every component of your system, and how much it can be overloaded, and for how long.'>
+<meta property='og:title' content='A few of the learnings from my 10&#43; years of software programming experience • just... Playing Around'>
+<meta property='og:description' content='After being in this industry for more than a decade now, there are a huge set of learnings that I have gathered.
+From programming microprocessors in assembly language on a dedicated hardware programmer to working with on petabyte scale data pipelines, I have gained experience with many different paradigms of programming world.
+Also, from working in a small one-room startup to a global conglomerate, to starting my own, I have also experienced many different organizational aspects and how they shape the entire software development process.'>
 <meta property='og:url' content='https://www.playingaround-dev.github.io/posts/learnings-from-10-years-of-programming/'>
 <meta property='og:site_name' content='just... Playing Around'>
 <meta property='og:type' content='article'><meta property='article:section' content='posts'><meta property='article:published_time' content='2021-02-07T01:00:00&#43;05:30'/><meta property='article:modified_time' content='2021-02-07T01:00:00&#43;05:30'/><meta name='twitter:card' content='summary'>
 
 <meta name="generator" content="Hugo 0.80.0" />
 
-  <title>Learning from 10&#43; years of software programming • just... Playing Around</title>
+  <title>A few of the learnings from my 10&#43; years of software programming experience • just... Playing Around</title>
   <link rel='canonical' href='https://www.playingaround-dev.github.io/posts/learnings-from-10-years-of-programming/'>
   
   
@@ -112,7 +116,7 @@
   <header class='header entry-header'>
   <div class='container sep-after'>
     <div class='header-info'>
-      <h1 class='title'>Learning from 10&#43; years of software programming</h1>
+      <h1 class='title'>A few of the learnings from my 10&#43; years of software programming experience</h1>
       
 
     </div>
@@ -139,7 +143,7 @@
   <polyline points="12 6 12 12 15 15"/>
 
 </svg>
-5 mins read
+8 mins read
 </span>
 
 
@@ -153,7 +157,13 @@
   
 
   <div class='container entry-content'>
-  <ol>
+  <p>After being in this industry for more than a decade now, there are a huge set of learnings that I have gathered.</p>
+<p>From programming <em>microprocessors</em> in <em>assembly language</em> on a dedicated <em>hardware programmer</em> to working with on <em>petabyte scale data pipelines</em>, I have gained experience with many different paradigms of programming world.</p>
+<p>Also, from working in a small one-room startup to a global conglomerate, to starting my own, I have also experienced many different organizational aspects and how they shape the entire software development process.</p>
+<p>All these have allowed me learn a lot about software development process (and in general, people too).</p>
+<p>Here are a few of those. Hope they&rsquo;ll be of help.</p>
+<hr>
+<ol>
 <li>Make sure to know your tools very well before you start off using them. Know all/most of their default configurations, settings, as well as understand what implication tweaking any of these has on overall system, as well as other parts of the system.</li>
 <li>Monitoring is a must. Make sure to have detailed insights into the workings of every system, at every second.</li>
 <li>Measure performance of every component of your system, and how much it can be overloaded, and for how long. Also measure what happens in overloaded situations.</li>
@@ -215,6 +225,13 @@
 <li>Follow consistent naming conventions. It&rsquo;s ok to differ on naming conventions across languages, but for a given language, make it a habit to have consistency. Such consistency not only helps in understanding of the code better (and fast), but also allows usage of many automated tools which rely on such consistent naming conventions.</li>
 <li>Have the ability to run code locally from day 1. This might seem trivial for smaller projects with zero to almost zero dependence on external services, but becomes pretty cumbersome once the project has grown big and relies on correct functioning of 10&rsquo;s of external services. Mock those services if, for whatever reason, any of those can&rsquo;t be run locally. Having the ability to experiment fast gives you the ability to build fast, and build right.</li>
 <li>When planning to introduce a new technology or a framework into your stack at a critical place, make sure to do a very thorough analysis of it. How active it is, how many issues does it have, how helpful the community is, how extensive the documentation is, how many questions/answers are there on stackoverflow, how steep is the learning curve, etc..</li>
+<li>As much as <code>designing</code> a system before jumping to code is important, equally important is to <code>begin</code>. Many a times you might find yourself in a situation where you have no clarity on next steps. Also, almost all of the times requirements will keep changing, and that can happen down to the very last day of your sprint cycle. What&rsquo;s important is to just begin. Once you start something, you gain better familiarity with it. That means you can now add your inputs to every changing requirements, and help finalize them faster and better.</li>
+<li>When explaining something to others, make it a habit to first be able to articulate it in one sentence. If it takes more than one, write it down. Writing things down puts a pressure on your brain that is much more than just thinking the same in your brain. This simple rule helps even while coding.</li>
+<li>Software engineering is an art. Treat it like one. Art requires patience, thinking, and a lot of focus. Software programming does the same.</li>
+<li>Reading others' code can actually make you write better code. Use github extensively for this. Go visit <code>github's trending</code> section at least once a week. Pick up any project and just skim through the code. No need to full understand everything. Just a brief browsing will add a lot to your understanding.</li>
+<li><code>Assumptions</code> in software development process are bad, but they inevitably make their way into it. No matter how much you try and avoid them, they find a way into the system. The best thing you can do when you can&rsquo;t get rid of them is to <code>document them</code> at a centralized place where anyone can look them up. Adding to project&rsquo;s README in one such place. Undocumented assumptions are a ticking time bomb.</li>
+<li>Learn the internal workings of technologies we use almost daily. They help you in your daily work and make you appreciate the effort others have put into them to make life easy for you. Some of these are, http handshaking, encryption, SSL, DNS, system calls, database transactions, character encoding, storage technologies, access control strategies, ldap, kerberos, oauth, saml, and more.</li>
+<li>Be open to others' inputs. Your solution/point might be valid, or even the best one, but that shoudn&rsquo;t stop you from hearing others out. Listen with an intent to fully understand and appreciate what others are saying. In almost all of the cases you&rsquo;ll gain something better.</li>
 </ol>
 
 </div>
