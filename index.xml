@@ -5,7 +5,16 @@
     <link>https://www.playingaround-dev.github.io/</link>
     <description>Recent content on just... Playing Around</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 05 Feb 2021 21:00:00 +0530</lastBuildDate><atom:link href="https://www.playingaround-dev.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 07 Feb 2021 01:00:00 +0530</lastBuildDate><atom:link href="https://www.playingaround-dev.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learning from 10&#43; years of software programming</title>
+      <link>https://www.playingaround-dev.github.io/posts/learnings-from-10-years-of-programming/</link>
+      <pubDate>Sun, 07 Feb 2021 01:00:00 +0530</pubDate>
+      
+      <guid>https://www.playingaround-dev.github.io/posts/learnings-from-10-years-of-programming/</guid>
+      <description>Make sure to know your tools very well before you start off using them. Know all/most of their default configurations, settings, as well as understand what implication tweaking any of these has on overall system, as well as other parts of the system. Monitoring is a must. Make sure to have detailed insights into the workings of every system, at every second. Measure performance of every component of your system, and how much it can be overloaded, and for how long.</description>
+    </item>
+    
     <item>
       <title>Using Gitlab&#39;s free private repo and CI/CD to deploy a static site to Github Pages for free</title>
       <link>https://www.playingaround-dev.github.io/posts/private-repo-gitlab-cicd-github-pages/</link>
