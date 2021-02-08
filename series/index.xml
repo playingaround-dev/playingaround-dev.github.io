@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Series on just... Playing Around</title>
+    <title>Series on PlayingAround with dev stuff</title>
     <link>https://www.playingaround-dev.github.io/series/</link>
-    <description>Recent content in Series on just... Playing Around</description>
+    <description>Recent content in Series on PlayingAround with dev stuff</description>
     <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.playingaround-dev.github.io/series/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
