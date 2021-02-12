@@ -5,18 +5,7 @@
     <link>https://www.playingaround-dev.github.io/posts/</link>
     <description>Recent content in Posts on PlayingAround with dev stuff</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 10 Feb 2021 01:00:00 +0530</lastBuildDate><atom:link href="https://www.playingaround-dev.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>An Easy and Comprehensive Guide to Distributed Systems (part 1)</title>
-      <link>https://www.playingaround-dev.github.io/posts/distributed-systems-guide-part-1/</link>
-      <pubDate>Wed, 10 Feb 2021 01:00:00 +0530</pubDate>
-      
-      <guid>https://www.playingaround-dev.github.io/posts/distributed-systems-guide-part-1/</guid>
-      <description>Note: This is part 1 of multi-part series
-  1. What is a distributed system As the name implies, it&amp;rsquo;s a system that is distributed in nature. The components of this system works together as one cohesive unit. It is also fault tolerant and horizontally scalable comparatively much more easily when compared to a non-distributed system
-2. Why do we need a distributed system Broadly speaking, they allow us to achieve following</description>
-    </item>
-    
+    <lastBuildDate>Sun, 07 Feb 2021 01:00:00 +0530</lastBuildDate><atom:link href="https://www.playingaround-dev.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Learnings from 10&#43; years of my software development work</title>
       <link>https://www.playingaround-dev.github.io/posts/learnings-from-10-years-of-software-development/</link>
