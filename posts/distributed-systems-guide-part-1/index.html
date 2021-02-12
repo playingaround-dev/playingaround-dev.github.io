@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang='en' dir='auto'><head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='Note: This is part 1 of multi-part series
+  1. What is a distributed system As the name implies, it&rsquo;s a system that is distributed in nature. The components of this system works together as one cohesive unit. It is also fault tolerant and horizontally scalable comparatively much more easily when compared to a non-distributed system
+2. Why do we need a distributed system Broadly speaking, they allow us to achieve following'>
+<meta name='theme-color' content='#ffcd00'>
+
+<meta property='og:title' content='An Easy and Comprehensive Guide to Distributed Systems (part 1) • PlayingAround with dev stuff'>
+<meta property='og:description' content='Note: This is part 1 of multi-part series
+  1. What is a distributed system As the name implies, it&rsquo;s a system that is distributed in nature. The components of this system works together as one cohesive unit. It is also fault tolerant and horizontally scalable comparatively much more easily when compared to a non-distributed system
+2. Why do we need a distributed system Broadly speaking, they allow us to achieve following'>
+<meta property='og:url' content='https://www.playingaround-dev.github.io/posts/distributed-systems-guide-part-1/'>
+<meta property='og:site_name' content='PlayingAround with dev stuff'>
+<meta property='og:type' content='article'><meta property='article:section' content='posts'><meta property='article:tag' content='distributed-systems'><meta property='article:tag' content='fundamentals'><meta property='article:tag' content='glossary'><meta property='article:published_time' content='2021-02-10T01:00:00&#43;05:30'/><meta property='article:modified_time' content='2021-02-10T01:00:00&#43;05:30'/><meta name='twitter:card' content='summary'>
+
+<meta name="generator" content="Hugo 0.80.0" />
+
+  <title>An Easy and Comprehensive Guide to Distributed Systems (part 1) • PlayingAround with dev stuff</title>
+  <link rel='canonical' href='https://www.playingaround-dev.github.io/posts/distributed-systems-guide-part-1/'>
+  
+  
+  <link rel='icon' href='/favicon.ico'>
+<link rel='stylesheet' href='/assets/css/main.ab98e12b.css'><link rel='stylesheet' href='/css/custom.css'><style>
+:root{--color-accent:#ffcd00;}
+</style>
+
+  
+
+</head>
+<body class='page type-posts has-sidebar'>
+
+  <div class='site'><div id='sidebar' class='sidebar'>
+  <a class='screen-reader-text' href='#main-menu'>Skip to Main Menu</a>
+
+  <div class='container'><section class='widget widget-about sep-after'>
+  <header>
+    
+    <div class='logo'>
+      <a href='/'>
+        <img src='/images/logo.png'>
+      </a>
+    </div>
+    
+    <h2 class='title site-title '>
+      <a href='/'>
+      PlayingAround with dev stuff
+      </a>
+    </h2>
+    <div class='desc'>
+    
+    </div>
+  </header>
+
+</section>
+<section class='widget widget-taxonomy_cloud sep-after'>
+  <header>
+    <h4 class='title widget-title'>Tags</h4>
+  </header>
+
+  <div class='container list-container'>
+  <ul class='list taxonomy-cloud'><li>
+        <a href='/tags/build-guide/' style='font-size:1em'>build-guide</a>
+      </li><li>
+        <a href='/tags/career/' style='font-size:1em'>career</a>
+      </li><li>
+        <a href='/tags/ci/cd/' style='font-size:1em'>ci/cd</a>
+      </li><li>
+        <a href='/tags/distributed-systems/' style='font-size:1em'>distributed-systems</a>
+      </li><li>
+        <a href='/tags/fundamentals/' style='font-size:1em'>fundamentals</a>
+      </li><li>
+        <a href='/tags/glossary/' style='font-size:1em'>glossary</a>
+      </li><li>
+        <a href='/tags/learnings/' style='font-size:1em'>learnings</a>
+      </li><li>
+        <a href='/tags/programming/' style='font-size:1em'>programming</a>
+      </li><li>
+        <a href='/tags/work/' style='font-size:1em'>work</a>
+      </li></ul>
+</div>
+
+
+</section>
+</div>
+
+  <div class='sidebar-overlay'></div>
+</div><div class='main'><nav id='main-menu' class='menu main-menu' aria-label='Main Menu'>
+  <div class='container'>
+    <a class='screen-reader-text' href='#content'>Skip to Content</a>
+
+<button id='sidebar-toggler' class='sidebar-toggler' aria-controls='sidebar'>
+  <span class='screen-reader-text'>Toggle Sidebar</span>
+  <span class='open'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <line x1="3" y1="12" x2="21" y2="12" />
+  <line x1="3" y1="6" x2="21" y2="6" />
+  <line x1="3" y1="18" x2="21" y2="18" />
+
+</svg>
+</span>
+  <span class='close'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <line x1="18" y1="6" x2="6" y2="18" />
+  <line x1="6" y1="6" x2="18" y2="18" />
+
+</svg>
+</span>
+</button>
+    <ul><li class='item'>
+        <a href=''></a>
+      </li><li class='item'>
+        <a href='/about/'>About Me</a>
+      </li></ul>
+  </div>
+</nav><div class='header-widgets'>
+        <div class='container'></div>
+      </div>
+
+      <header id='header' class='header site-header'>
+        <div class='container sep-after'>
+          <div class='header-info'><p class='site-title title'>PlayingAround with dev stuff</p><p class='desc site-desc'></p>
+          </div>
+        </div>
+      </header>
+
+      <main id='content'>
+
+
+<article lang='en' class='entry'>
+  <header class='header entry-header'>
+  <div class='container sep-after'>
+    <div class='header-info'>
+      <h1 class='title'>An Easy and Comprehensive Guide to Distributed Systems (part 1)</h1>
+      
+
+    </div>
+    <div class='entry-meta'>
+  <span class='posted-on'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+
+</svg>
+<span class='screen-reader-text'>Posted on </span>
+  <time class='entry-date' datetime='2021-02-10T01:00:00&#43;05:30'>2021, Feb 10</time>
+</span>
+
+  
+  
+<span class='reading-time'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/>
+
+</svg>
+12 mins read
+</span>
+
+
+</div>
+
+
+  </div>
+</header>
+
+  
+  
+
+  <div class='container entry-content'>
+  <blockquote>
+<p>Note: This is <em>part 1</em> of multi-part series</p>
+</blockquote>
+<hr>
+<h4 id="1-what-is-a-distributed-system">1. What is a distributed system</h4>
+<p>As the name implies, it&rsquo;s a system that is distributed in nature.
+The components of this system works together as one cohesive unit.
+It is also fault tolerant and horizontally scalable comparatively much more easily when compared to a non-distributed system</p>
+<h4 id="2-why-do-we-need-a-distributed-system">2. Why do we need a distributed system</h4>
+<p>Broadly speaking, they allow us to achieve following</p>
+<ol>
+<li>Horizontal scalability</li>
+<li>High efficiency for given infra costs</li>
+<li>High availability</li>
+</ol>
+<h4 id="3-doesnt-non-distributed-systems-offer-the-same-set-of-features">3. Doesn&rsquo;t non-distributed systems offer the same set of features</h4>
+<p>No. At least not without incurring heavy costs</p>
+<h4 id="4-disadvantages-of-distributed-systems">4. Disadvantages of distributed systems</h4>
+<ol>
+<li>Complexity increases many fold</li>
+<li>Understanding overall system takes expertise from multiple domains</li>
+<li>Data duplicacy occurs, generally</li>
+<li>Data migrations become more difficult</li>
+<li>Networking costs increses</li>
+<li>Securing the system becomes more difficult</li>
+<li>Deployments and troubleshooting becomes difficult</li>
+</ol>
+<h4 id="5-when-to-use-a-distributed-system">5. When to use a distributed system</h4>
+<ol>
+<li>Whenever a non-distributed system starts to incur heavy <code>cost/performance</code> ratio.</li>
+<li>You effectively trade-off simplicity for performance at a given cost</li>
+</ol>
+<h4 id="6-when-not-to-use-a-distributed-system">6. When NOT to use a distributed-system</h4>
+<ol>
+<li>Till you&rsquo;re able to maintain acceptable cost/performance ratio. The lower, the better</li>
+</ol>
+<h4 id="7-a-few-imortant-terms">7. A few imortant terms</h4>
+<ol>
+<li><strong>Reliability</strong>: Ability of a system to perform its required functions under stated conditions for a specific period of time. It is a measure of continuity of correct service. Reliability is a safety guarantee stating that nothing bad will happen (under the stated conditions) [1]</li>
+<li><strong>Availibility</strong>: The proportion of time for which a system can perform its function as seen from a client&rsquo;s perspective. It is measured in percentage units w.r.t. time. It is defined as probability value. A <code>99.999% available</code> system means it can go down for <code>max 5.26 minutes/year</code>, or <code>max 26.30 seconds/month</code>. This is also know as <code>5 nines</code> of availability.</li>
+<li><strong>Scalabiloty</strong>: The property of a system to be able to meet increased load by by adding proprtional amount of resources. In simple sense this means the system can handle increased amount of load by simply consuming more resources, withou letting it&rsquo;s performance get impacted.</li>
+<li><strong>Fault Tolerance</strong>: The ability of a system to detect a fault, and instantaneously switch to the redundant copy of the component with almost negligible downtime. Loss may includes network failures, cpu, ram, disk, power failures, etc.. This mostly relates to the hardware part.</li>
+<li><strong>High Availability</strong>: Similar to fault tolerance, but more cost effective at the expense of comparatively more, but acceptable downtime. This works on the software side, and uses redundant systems and smart fault detection and correction strategies for it to function.</li>
+<li><strong>Consistency</strong>: Ability of a system to maintain a single, up-to-date copy of the data, irrespective of how widely distribited it is.</li>
+<li><strong>Atomicity</strong>: Ability if a system to either correctly apply all given operations, or none.</li>
+<li><strong>Durability</strong>: Ability of a system to be able to persist information correctly even across hardware failures, once the information has been committed to its&rsquo;s persistence backend, whatever that may be.</li>
+<li><strong>Latency</strong>: Time delay between cause and effect[2]. In distributed system terms, it generally refers to delay in propagating any change in data across one part of the system to other.</li>
+<li><strong>Replication</strong>: Act of making multiple copies of a subject. In our case, the data. Used to improve data availability and accessibility, and to improve system resilience and reliability.</li>
+<li><strong>Transaction</strong>: A single logical unit of work. It either completes fully, or none.</li>
+<li><strong>Sharding(Partitioning)</strong>: Partitioning of related data across more than one locations (machines/nodes) to either achieve higher concurrency, or allow holding more data as allowed on one location, or both. It is also known as horizontal partitioning of data as a database table is split horizontally (across rows) as opposed to across columns (as in vertical partitioning).</li>
+<li><strong>Accuracy and Correctness</strong>: Accuracy means your clock is changing at the same rate as the perfect clock. Correctness means the clocks register the same time</li>
+</ol>
+<h4 id="8-cap-theorem">8. CAP Theorem</h4>
+<p>This is a well know theorem used to help system designers make informed decisions about trade-offs between available system resources and desired functionaity while designing networked shared-data systems (distributed systems)</p>
+<ol>
+<li>CAP refers to <strong>Consistency</strong>, <strong>Availability</strong>, <strong>Partition</strong> tolerance. The theorem, in it&rsquo;s very basic sense, states that in a distributed system, one can only have either the consistent system, or the available system, in a partitioned network state. <code>Partitioned network</code> simply means a component is not reachable due to network failure.</li>
+<li>The theorem helps us to decide what is more importannt for our current use-case. For transactional data, the choice is consistency, while for high throughput data that can deal with a little lag (like analytics data), consistency can be traded off to achieve better availability, for given associated costs.</li>
+<li>A system that is partition-tolerant can sustain any amount of network failure that doesn’t result in a failure of the entire network. Data records are sufficiently replicated across combinations of nodes and networks to keep the system up through intermittent outages.</li>
+<li>When dealing with modern distributed systems, Partition Tolerance is not an option. It’s a necessity. Hence, we have to trade between Consistency and Availability.</li>
+</ol>
+<h4 id="9-acid-properties">9. ACID Properties</h4>
+<p>It is a set of properties of database transactions intended to guarantee data validity, despite errors, power failures, and other mishaps. relational databases are primary candidates of such properties, though other types might also support (partially or fully)</p>
+<ol>
+<li><strong>A =&gt; Atomicity</strong>: This property states that a transaction must be treated as an atomic unit, that is, either all of its operations are executed or none. There must be no state in a database where a transaction is left partially completed</li>
+<li><strong>C =&gt; Consistency</strong>: The database must remain in a consistent state after any transaction. No transaction should have any adverse effect on the data residing in the database. If the database was in a consistent state before the execution of a transaction, it must remain consistent after the execution of the transaction as well</li>
+<li><strong>I =&gt; Isolation</strong>: In a database system where more than one transaction are being executed simultaneously and in parallel, the property of isolation states that all the transactions will be carried out and executed as if it is the only transaction in the system. No transaction will affect the existence of any other transaction.</li>
+<li><strong>D =&gt; Durability</strong>: The database should be durable enough to hold all its latest updates even if the system fails or restarts.</li>
+</ol>
+<h4 id="10-concensus-algorithms">10. Concensus Algorithms</h4>
+<p>Dictionary definition of the term says:</p>
+<p><em>Consensus is a group discussion where everyone&rsquo;s opinions are heard and understood, and a solution is created that respects those opinions. Consensus is not what everyone agrees to, nor is it the preference of the majority. Consensus results in the best solution that the group can achieve at the time.</em></p>
+<p>In distributed systems, same definition applies. The only difference is in the meaning of the word <strong><code>opinion</code></strong>. The above definition for distributed systems can be stated as:</p>
+<p><em>The goal of a distributed consensus algorithm is to allow a set of computers to all agree on a single value that one of the nodes in the system proposed (as opposed to making up a random value). The challenge in doing this in a distributed system is that messages can be lost or machines can fail.</em></p>
+<ol>
+<li><strong>Paxos</strong>: <a href="https://en.wikipedia.org/wiki/Paxos_(computer_science)">https://en.wikipedia.org/wiki/Paxos_(computer_science)</a></li>
+<li><strong>Raft</strong>: <a href="https://raft.github.io/">https://raft.github.io/</a></li>
+</ol>
+<p><strong>Note:</strong> Above algorithms are pretty detailed in nature and require their own separate space for them to be properly explained and understood.</p>
+<h4 id="11-consistency-levels">11. Consistency Levels</h4>
+<ol>
+<li><strong>Strong consistency</strong>: After an update completes, all further operations correctly use the new value</li>
+<li><strong>Weak consistency</strong>: Operations after an update completes may not correctly use the new value</li>
+<li><strong>Eventual consistency</strong>: If no new updates are made to an object, at some point in future it will return correct value</li>
+<li><strong>Casual consistency</strong>: Once an updated version is communicated to a process, it is guaranteed to not use older versions</li>
+</ol>
+<h4 id="12-databases-storage-engines">12. Databases Storage Engines</h4>
+<p>A database storage engine is an internal software component that a database server uses to store, read, update, and delete data in the underlying memory and storage systems. Broadly speaking there are 2 types that are used extensively:</p>
+<ol>
+<li><strong>B-Tree Based Engine</strong>: Uses <code>b-tree</code> data structure to hold data. Performs beter with reads. Example databases: MySQL, Postgre, MongoDB, Couchbase, etc.</li>
+<li><strong>Log Structured Merge (LSM) Tree Based Engine</strong>: Uses <code>lsm</code> structure to organize data. Performs better with writes. Example databases: Cassandra, BigTable, Elasticsearch, RocksDB, etc.</li>
+</ol>
+<h4 id="13-concurrency-control">13. Concurrency Control</h4>
+<ol>
+<li>It deals with the issues involved with allowing multiple people simultaneous access to shared entities, be they objects, data records, or some other representation.</li>
+<li>It provides concepts and technologies to synchronize multiple transactions in a way that their interleaved execution does not violate ACID properties.</li>
+</ol>
+<h4 id="14-collisions">14. Collisions</h4>
+<ol>
+<li>A collision is said to occur when two activities, which may or may not be full-fledged transactions, attempt to change entities within a system of record.</li>
+<li>There are three fundamental ways (Celko 1999) that two activities can interfere with one another:</li>
+</ol>
+<ul>
+<li>
+<ol>
+<li><strong>Dirty Read</strong>: Activity 1 (A1) reads an entity from the system of record and then updates the system of record but does not commit the change (for example, the change hasn’t been finalized). Activity 2 (A2) reads the entity, unknowingly making a copy of the uncommitted version. A1 rolls back (aborts) the changes, restoring the entity to the original state that A1 found it in. A2 now has a version of the entity that was never committed and therefore is not considered to have actually existed.</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li><strong>Non-repeatable Read</strong>: A1 reads an entity from the system of record, making a copy of it. A2 deletes the entity from the system of record. A1 now has a copy of an entity that does not officially exist.</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li><strong>Phantom Read</strong>: A1 retrieves a collection of entities from the system of record, making copies of them, based on some sort of search criteria such as “all customers with first name Bill.”A2 then creates new entities, which would have met the search criteria (for example, inserts “Bill Klassen” into the database), saving them to the system of record. If A1 reapplies the search criteria it gets a different result set.</li>
+</ol>
+</li>
+</ul>
+<h4 id="15-lock-based-concurrency-control-strategies">15. Lock Based Concurrency Control Strategies</h4>
+<p>These strategies use the concept of locking data items. A lock is a variable associated with a data item that determines whether read/write operations can be performed on that data item.</p>
+<ul>
+<li>
+<ol>
+<li><strong>Pessimistic Locking</strong>:</li>
+</ol>
+<ul>
+<li>
+<ol>
+<li>Pessimistic locking is an approach where an entity is locked in the database for the entire time that it is in application memory (often in the form of an object). A lock either limits or prevents other users from working with the entity in the database.</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>A write lock indicates that the holder of the lock intends to update the entity and disallows anyone from reading, updating, or deleting the entity. A read lock indicates that the holder of the lock does not want the entity to change while the hold the lock, allowing others to read the entity but not update or delete it.</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>The scope of a lock might be the entire database, a table, a collection of rows, or a single row.</li>
+</ol>
+</li>
+<li>
+<ol start="4">
+<li>The advantages of pessimistic locking are that it is easy to implement and guarantees that your changes to the database are made consistently and safely.</li>
+</ol>
+</li>
+<li>
+<ol start="5">
+<li>The primary disadvantage is that this approach isn’t scalable</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<ol start="2">
+<li><strong>Optimistic Locking</strong>:</li>
+</ol>
+<ul>
+<li>
+<ol>
+<li>The basic idea is that you accept the fact that collisions occur infrequently, and instead of trying to prevent them you simply choose to detect them and then resolve the collision when it does occur.</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>In this, a database typically marks read rows in some way (unique id, timestamp, incremental counter, etc.) when loading into memory for manipulation, and checks before writing them back if the marked values are same or not. Collision is detected if the marked values are not same.</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<ol start="3">
+<li><strong>Overly Optimistic Locking</strong>:</li>
+</ol>
+<ul>
+<li>
+<ol>
+<li>In this, you neither try to avoid nor detect collisions, assuming that they will never occur.</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>This strategy is appropriate for single user systems, systems where the system of record is guaranteed to be accessed by only one user or system process at a time, or read-only tables.</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>This abviously gives best performance.</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="16-time-based-concurrency-control-strategies">16. Time Based Concurrency Control Strategies</h4>
+<ol>
+<li>These strategies use a transaction’s timestamp to coordinate concurrent access to a data item to ensure serializability. A timestamp is a unique identifier given by DBMS to a transaction that represents the transaction’s start time.</li>
+<li>They ensure that transactions commit in the order dictated by their timestamps. An older transaction should commit before a younger transaction, since the older transaction enters the system before the younger one.</li>
+</ol>
+<ul>
+<li>
+<ol>
+<li><strong>Basic timestamp ordering algorithm</strong></li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li><strong>Conservative timestamp ordering algorithm</strong></li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li><strong>Multiversion algorithm based upon timestamp ordering</strong></li>
+</ol>
+</li>
+</ul>
+<h4 id="17-data-replication-strategies">17. Data Replication Strategies</h4>
+<ol>
+<li><strong>Log-Based Data Replication</strong></li>
+</ol>
+<ul>
+<li>
+<ol>
+<li>Involves making use of transaction log kept by databases. This log file keeps track of every change in the database, right from the very beginning, in chronological order.</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>It can be implemented in following 2 ways:</li>
+</ol>
+<ul>
+<li>
+<ol>
+<li><strong>Statement Based Log Replication</strong>: Statement-based replication keeps track and stores all such commands, queries or actions that modify the database and bring about updations. Procedures that have the statement-based mechanism in place generate the replicas by re-running all these statements in the order of their occurrence</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li><strong>Row Based Log Replication</strong>: Row-based replication keeps track of all the new rows of the database and stores them in the form of a record in the log file. The unique position Id of a row acts as a bookmark, allowing the database to continue the replication process with ease.</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li><strong>Full Table Data Replication</strong></li>
+</ol>
+<ul>
+<li>
+<ol>
+<li>It involved replicating the database and its tables completely.</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>It will carry out replication for all the data records, irrespective of whether they are old or new.</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>It can be implemented in following ways:</li>
+</ol>
+<ul>
+<li>
+<ol>
+<li><strong>Snapshot Replication</strong>: It generates a replica of your database by taking a “snapshot” of how your tables, data, relationships, etc. look like at a particular point in time and then replicates the same on the other database.</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li><strong>Transactional Replication</strong>: It achieves replication by first monitoring the updates as they occur on the master database and then carrying out sync to make all these changes in the replicas. It ensures transactional consistency by carrying out the updates in the same order as the original database.</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li><strong>Key-Based Incremental Data Replication</strong>: This replication strategy leverages the replication key column to identify the new and updated data. A replication key column is a column holding unique values across all dataset. It then carries out the replication process for records that house the updated replication keys.</li>
+</ol>
+<hr>
+<blockquote>
+<p>&hellip; Part 2 of this series is in progress</p>
+</blockquote>
+<hr>
+<h5 id="references">References</h5>
+<ol>
+<li><a href="https://lethain.com/distributed-systems-vocabulary/">https://lethain.com/distributed-systems-vocabulary/</a></li>
+<li><a href="https://www.tutorialspoint.com/dbms/dbms_transaction.htm">https://www.tutorialspoint.com/dbms/dbms_transaction.htm</a></li>
+<li><a href="https://www.cs.rutgers.edu/~pxk/417/notes/content/consensus.html">https://www.cs.rutgers.edu/~pxk/417/notes/content/consensus.html</a></li>
+<li><a href="https://stackoverflow.com/a/31408483">https://stackoverflow.com/a/31408483</a></li>
+<li><a href="https://blog.yugabyte.com/a-busy-developers-guide-to-database-storage-engines-the-basics/">https://blog.yugabyte.com/a-busy-developers-guide-to-database-storage-engines-the-basics/</a></li>
+<li><a href="http://www.agiledata.org/essays/concurrencyControl.html">http://www.agiledata.org/essays/concurrencyControl.html</a></li>
+<li><a href="https://www.tutorialspoint.com/distributed_dbms/distributed_dbms_controlling_concurrency.htm">https://www.tutorialspoint.com/distributed_dbms/distributed_dbms_controlling_concurrency.htm</a></li>
+<li><a href="https://hevodata.com/learn/data-replication-strategy">https://hevodata.com/learn/data-replication-strategy</a></li>
+</ol>
+
+</div>
+
+  
+<footer class='entry-footer'>
+  <div class='container sep-before'><div class='tags'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+
+</svg>
+<span class='screen-reader-text'>Tags: </span><a class='tag' href='/tags/distributed-systems/'>distributed-systems</a>, <a class='tag' href='/tags/fundamentals/'>fundamentals</a>, <a class='tag' href='/tags/glossary/'>glossary</a></div>
+
+  </div>
+</footer>
+
+
+</article>
+
+<nav class='entry-nav'>
+  <div class='container'><div class='prev-entry sep-before'>
+      <a href='/posts/learnings-from-10-years-of-software-development/'>
+        <span aria-hidden='true'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+
+</svg>
+ Previous</span>
+        <span class='screen-reader-text'>Previous post: </span>Learnings from 10&#43; years of my software development work</a>
+    </div></div>
+</nav>
+
+
+
+
+      </main>
+
+      <footer id='footer' class='footer'>
+        <div class='container sep-before'><section class='widget widget-social_menu sep-after'><nav aria-label='Social Menu'>
+    <ul><li>
+        <a href='https://github.com/playingaround-dev' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Github account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+
+</svg>
+</a>
+      </li><li>
+        <a href='https://twitter.com/9wxg1' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Twitter account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <title>Twitter icon</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+
+</svg>
+</a>
+      </li><li>
+        <a href='mailto:nitinbansal85@gmail.com' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Contact via Email</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline>
+</svg>
+</a>
+      </li><li>
+        <a href='https://linkedin.com/in/nitinbansal85' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Linkedin account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+      </li></ul>
+  </nav>
+</section><div class='copyright'>
+  <p> &copy; 2021 Nitin Bansal </p>
+</div>
+
+        </div>
+      </footer>
+
+    </div>
+  </div><script>window.__assets_js_src="/assets/js/"</script>
+
+<script src='/assets/js/main.c3bcf2df.js'></script><script src='/js/custom.js'></script>
+
+</body>
+
+</html>
+

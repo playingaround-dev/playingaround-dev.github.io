@@ -3,17 +3,17 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://www.playingaround-dev.github.io/posts/distributed-systems-guide-part-1/</loc>
+    <lastmod>2021-02-10T01:00:00+05:30</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.playingaround-dev.github.io/tags/distributed-systems/</loc>
     <lastmod>2021-02-10T01:00:00+05:30</lastmod>
   </url>
   
   <url>
     <loc>https://www.playingaround-dev.github.io/tags/fundamentals/</loc>
-    <lastmod>2021-02-10T01:00:00+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.playingaround-dev.github.io/posts/a-guide-on-building-distributed-systems-part-1/</loc>
     <lastmod>2021-02-10T01:00:00+05:30</lastmod>
   </url>
   
