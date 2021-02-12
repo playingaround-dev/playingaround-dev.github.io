@@ -7,14 +7,14 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 08 Feb 2021 01:00:00 +0530</lastBuildDate><atom:link href="https://www.playingaround-dev.github.io/tags/fundamentals/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Fundamentals of Distributed Systems</title>
-      <link>https://www.playingaround-dev.github.io/posts/a-guide-on-building-distributed-systems/</link>
+      <title>Fundamentals of Distributed Systems (part 1)</title>
+      <link>https://www.playingaround-dev.github.io/posts/a-guide-on-building-distributed-systems-part-1/</link>
       <pubDate>Mon, 08 Feb 2021 01:00:00 +0530</pubDate>
       
-      <guid>https://www.playingaround-dev.github.io/posts/a-guide-on-building-distributed-systems/</guid>
-      <description>1. What is a distributed system As the name implies, it&amp;rsquo;s a system that is distributed in nature. The components of this system works together as one cohesive unit. It is also fault tolerant and horizontally scalable comparatively much more easily when compared to a non-distributed system
-2. Why do we need a distributed system Broadly speaking, they allow us to achieve following
- Horizontal scalability High efficiency for given infra costs High availability  3.</description>
+      <guid>https://www.playingaround-dev.github.io/posts/a-guide-on-building-distributed-systems-part-1/</guid>
+      <description>Note: This is part 1 of multi-part series
+  1. What is a distributed system As the name implies, it&amp;rsquo;s a system that is distributed in nature. The components of this system works together as one cohesive unit. It is also fault tolerant and horizontally scalable comparatively much more easily when compared to a non-distributed system
+2. Why do we need a distributed system Broadly speaking, they allow us to achieve following</description>
     </item>
     
   </channel>
