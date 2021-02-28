@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>distributed-systems on PlayingAround with dev stuff</title>
+    <title>distributed-systems on The Dev Stuff</title>
     <link>https://www.playingaround-dev.github.io/tags/distributed-systems/</link>
-    <description>Recent content in distributed-systems on PlayingAround with dev stuff</description>
+    <description>Recent content in distributed-systems on The Dev Stuff</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 10 Feb 2021 01:00:00 +0530</lastBuildDate><atom:link href="https://www.playingaround-dev.github.io/tags/distributed-systems/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 18 Feb 2021 01:00:00 +0530</lastBuildDate><atom:link href="https://www.playingaround-dev.github.io/tags/distributed-systems/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Distributed Systems Guide (part 1)</title>
-      <link>https://www.playingaround-dev.github.io/posts/distributed-systems-guide-part-1/</link>
-      <pubDate>Wed, 10 Feb 2021 01:00:00 +0530</pubDate>
+      <title>Distributed Systems Guide</title>
+      <link>https://www.playingaround-dev.github.io/posts/distributed-systems-guide-part1/</link>
+      <pubDate>Thu, 18 Feb 2021 01:00:00 +0530</pubDate>
       
-      <guid>https://www.playingaround-dev.github.io/posts/distributed-systems-guide-part-1/</guid>
-      <description>Note: This is part-1 of a multi-part series
-  1. What is a distributed system As the name implies, it&amp;rsquo;s a system that is distributed in nature. The components of this system works together as one cohesive unit. It is also fault tolerant and horizontally scalable comparatively much more easily when compared to a non-distributed system
-2. Why do we need a distributed system Broadly speaking, they allow us to achieve following</description>
+      <guid>https://www.playingaround-dev.github.io/posts/distributed-systems-guide-part1/</guid>
+      <description>The aim of this guide is to provide an easy to understand, yet comprehensive introduction to distributed systems, which have become fundamental to modern data processing systems. The target audience for this guide is the people who desire, or are professionally starting to work in distributed systems. The guide might also be useful as a refresher for experienced professionals.   1. What is a distributed system As the name implies, it&amp;rsquo;s a system that is distributed in nature.</description>
     </item>
     
   </channel>
