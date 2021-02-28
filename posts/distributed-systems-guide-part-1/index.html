@@ -7,7 +7,7 @@
 2. Why do we need a distributed system Broadly speaking, they allow us to achieve following'>
 <meta name='theme-color' content='#ffcd00'>
 
-<meta property='og:title' content='An Easy and Comprehensive Guide to Distributed Systems (part 1) • PlayingAround with dev stuff'>
+<meta property='og:title' content='Distributed Systems Guide (part 1) • PlayingAround with dev stuff'>
 <meta property='og:description' content='Note: This is part 1 of multi-part series
   1. What is a distributed system As the name implies, it&rsquo;s a system that is distributed in nature. The components of this system works together as one cohesive unit. It is also fault tolerant and horizontally scalable comparatively much more easily when compared to a non-distributed system
 2. Why do we need a distributed system Broadly speaking, they allow us to achieve following'>
@@ -17,7 +17,7 @@
 
 <meta name="generator" content="Hugo 0.80.0" />
 
-  <title>An Easy and Comprehensive Guide to Distributed Systems (part 1) • PlayingAround with dev stuff</title>
+  <title>Distributed Systems Guide (part 1) • PlayingAround with dev stuff</title>
   <link rel='canonical' href='https://www.playingaround-dev.github.io/posts/distributed-systems-guide-part-1/'>
   
   
@@ -134,7 +134,7 @@
   <header class='header entry-header'>
   <div class='container sep-after'>
     <div class='header-info'>
-      <h1 class='title'>An Easy and Comprehensive Guide to Distributed Systems (part 1)</h1>
+      <h1 class='title'>Distributed Systems Guide (part 1)</h1>
       
 
     </div>
@@ -213,22 +213,22 @@ It is also fault tolerant and horizontally scalable comparatively much more easi
 </ol>
 <h4 id="7-a-few-imortant-terms">7. A few imortant terms</h4>
 <ol>
-<li><strong>Reliability</strong>: Ability of a system to perform its required functions under stated conditions for a specific period of time. It is a measure of continuity of correct service. Reliability is a safety guarantee stating that nothing bad will happen (under the stated conditions) [1]</li>
+<li><strong>Reliability</strong>: Ability of a system to perform its required functions under stated conditions for a specific period of time. It is a measure of continuity of correct service. Reliability is a safety guarantee stating that nothing bad will happen (under the stated conditions)</li>
 <li><strong>Availibility</strong>: The proportion of time for which a system can perform its function as seen from a client&rsquo;s perspective. It is measured in percentage units w.r.t. time. It is defined as probability value. A <code>99.999% available</code> system means it can go down for <code>max 5.26 minutes/year</code>, or <code>max 26.30 seconds/month</code>. This is also know as <code>5 nines</code> of availability.</li>
-<li><strong>Scalabiloty</strong>: The property of a system to be able to meet increased load by by adding proprtional amount of resources. In simple sense this means the system can handle increased amount of load by simply consuming more resources, withou letting it&rsquo;s performance get impacted.</li>
+<li><strong>Scalability</strong>: The property of a system to be able to meet increased load by adding proprtional amount of resources. In simple sense, this means the system can handle increased amount of load by simply consuming more resources, without letting it&rsquo;s performance get impacted in a negative manner.</li>
 <li><strong>Fault Tolerance</strong>: The ability of a system to detect a fault, and instantaneously switch to the redundant copy of the component with almost negligible downtime. Loss may includes network failures, cpu, ram, disk, power failures, etc.. This mostly relates to the hardware part.</li>
 <li><strong>High Availability</strong>: Similar to fault tolerance, but more cost effective at the expense of comparatively more, but acceptable downtime. This works on the software side, and uses redundant systems and smart fault detection and correction strategies for it to function.</li>
 <li><strong>Consistency</strong>: Ability of a system to maintain a single, up-to-date copy of the data, irrespective of how widely distribited it is.</li>
-<li><strong>Atomicity</strong>: Ability if a system to either correctly apply all given operations, or none.</li>
+<li><strong>Atomicity</strong>: Ability of a system to either correctly apply all given operations, or none.</li>
 <li><strong>Durability</strong>: Ability of a system to be able to persist information correctly even across hardware failures, once the information has been committed to its&rsquo;s persistence backend, whatever that may be.</li>
-<li><strong>Latency</strong>: Time delay between cause and effect[2]. In distributed system terms, it generally refers to delay in propagating any change in data across one part of the system to other.</li>
+<li><strong>Latency</strong>: Time delay between cause and effect. In distributed system terms, it generally refers to delay in propagating any change in data across one part of the system to other.</li>
 <li><strong>Replication</strong>: Act of making multiple copies of a subject. In our case, the data. Used to improve data availability and accessibility, and to improve system resilience and reliability.</li>
 <li><strong>Transaction</strong>: A single logical unit of work. It either completes fully, or none.</li>
 <li><strong>Sharding(Partitioning)</strong>: Partitioning of related data across more than one locations (machines/nodes) to either achieve higher concurrency, or allow holding more data as allowed on one location, or both. It is also known as horizontal partitioning of data as a database table is split horizontally (across rows) as opposed to across columns (as in vertical partitioning).</li>
 <li><strong>Accuracy and Correctness</strong>: Accuracy means your clock is changing at the same rate as the perfect clock. Correctness means the clocks register the same time</li>
 </ol>
 <h4 id="8-cap-theorem">8. CAP Theorem</h4>
-<p>This is a well know theorem used to help system designers make informed decisions about trade-offs between available system resources and desired functionaity while designing networked shared-data systems (distributed systems)</p>
+<p>This is a well know theorem used to help system designers make informed decisions about trade-offs between available system resources and desired functionality while designing networked shared-data systems (distributed systems)</p>
 <ol>
 <li>CAP refers to <strong>Consistency</strong>, <strong>Availability</strong>, <strong>Partition</strong> tolerance. The theorem, in it&rsquo;s very basic sense, states that in a distributed system, one can only have either the consistent system, or the available system, in a partitioned network state. <code>Partitioned network</code> simply means a component is not reachable due to network failure.</li>
 <li>The theorem helps us to decide what is more importannt for our current use-case. For transactional data, the choice is consistency, while for high throughput data that can deal with a little lag (like analytics data), consistency can be traded off to achieve better availability, for given associated costs.</li>
@@ -236,12 +236,12 @@ It is also fault tolerant and horizontally scalable comparatively much more easi
 <li>When dealing with modern distributed systems, Partition Tolerance is not an option. It’s a necessity. Hence, we have to trade between Consistency and Availability.</li>
 </ol>
 <h4 id="9-acid-properties">9. ACID Properties</h4>
-<p>It is a set of properties of database transactions intended to guarantee data validity, despite errors, power failures, and other mishaps. relational databases are primary candidates of such properties, though other types might also support (partially or fully)</p>
+<p>It is a set of properties of database transactions intended to guarantee data validity, despite errors, power failures, and other mishaps. Relational databases are primary candidates of such properties, though other types might also support (partially or fully)</p>
 <ol>
-<li><strong>A =&gt; Atomicity</strong>: This property states that a transaction must be treated as an atomic unit, that is, either all of its operations are executed or none. There must be no state in a database where a transaction is left partially completed</li>
-<li><strong>C =&gt; Consistency</strong>: The database must remain in a consistent state after any transaction. No transaction should have any adverse effect on the data residing in the database. If the database was in a consistent state before the execution of a transaction, it must remain consistent after the execution of the transaction as well</li>
-<li><strong>I =&gt; Isolation</strong>: In a database system where more than one transaction are being executed simultaneously and in parallel, the property of isolation states that all the transactions will be carried out and executed as if it is the only transaction in the system. No transaction will affect the existence of any other transaction.</li>
-<li><strong>D =&gt; Durability</strong>: The database should be durable enough to hold all its latest updates even if the system fails or restarts.</li>
+<li><strong>A: Atomicity</strong>: This property states that a transaction must be treated as an atomic unit, that is, either all of its operations are executed or none. There must be no state in a database where a transaction is left partially completed</li>
+<li><strong>C: Consistency</strong>: The database must remain in a consistent state after any transaction. No transaction should have any adverse effect on the data residing in the database. If the database was in a consistent state before the execution of a transaction, it must remain consistent after the execution of the transaction as well</li>
+<li><strong>I: Isolation</strong>: In a database system where more than one transaction are being executed simultaneously and in parallel, the property of isolation states that all the transactions will be carried out and executed as if it is the only transaction in the system. No transaction will affect the existence of any other transaction.</li>
+<li><strong>D: Durability</strong>: The database should be durable enough to hold all its latest updates even if the system fails or restarts.</li>
 </ol>
 <h4 id="10-concensus-algorithms">10. Concensus Algorithms</h4>
 <p>Dictionary definition of the term says:</p>
