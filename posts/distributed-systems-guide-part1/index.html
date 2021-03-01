@@ -456,6 +456,20 @@ It is also fault tolerant and horizontally scalable comparatively much more easi
 <ol start="3">
 <li><strong>Key-Based Incremental Data Replication</strong>: This replication strategy leverages the replication key column to identify the new and updated data. A replication key column is a column holding unique values across all dataset. It then carries out the replication process for records that house the updated replication keys.</li>
 </ol>
+<h4 id="19-data-sharding-techniques">19. Data sharding techniques</h4>
+<ol>
+<li>Algorithmic Sharding</li>
+<li>Linear Hash Sharding</li>
+<li>Consistent Hash Sharding</li>
+<li>Range Sharding</li>
+</ol>
+<h4 id="20-hashing-techniques-for-load-balancing-in-distributed-systems">20. Hashing techniques for load balancing in distributed systems</h4>
+<ol>
+<li>Consistent Hashing</li>
+<li>Round Robin Hashing</li>
+<li>Rendezous Hashing</li>
+<li>Modulo Hashing</li>
+</ol>
 <hr>
 <h5 id="note">Note</h5>
 <p>Although this article gives good introduction to distributed systems, there are many more concepts that are useful in building distributed systems, better. I&rsquo;m working on <strong>part 2</strong> of this guide that will try to include those in a similarly easy to understand manner.</p>
@@ -473,6 +487,7 @@ It is also fault tolerant and horizontally scalable comparatively much more easi
 <li><a href="https://www.tutorialspoint.com/distributed_dbms/distributed_dbms_controlling_concurrency.htm">https://www.tutorialspoint.com/distributed_dbms/distributed_dbms_controlling_concurrency.htm</a></li>
 <li><a href="https://hevodata.com/learn/data-replication-strategy">https://hevodata.com/learn/data-replication-strategy</a></li>
 <li><a href="https://en.wikipedia.org/wiki/PACELC_theorem">https://en.wikipedia.org/wiki/PACELC_theorem</a></li>
+<li><a href="https://blog.yugabyte.com/four-data-sharding-strategies-we-analyzed-in-building-a-distributed-sql-database/">https://blog.yugabyte.com/four-data-sharding-strategies-we-analyzed-in-building-a-distributed-sql-database/</a></li>
 </ol>
 
 </div>
