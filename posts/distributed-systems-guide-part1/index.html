@@ -157,7 +157,7 @@
   <polyline points="12 6 12 12 15 15"/>
 
 </svg>
-13 mins read
+14 mins read
 </span>
 
 
@@ -470,6 +470,21 @@ It is also fault tolerant and horizontally scalable comparatively much more easi
 <li>Rendezous Hashing</li>
 <li>Modulo Hashing</li>
 </ol>
+<h4 id="21-fallacies-of-distributed-computing">21. Fallacies of Distributed Computing</h4>
+<p>Taken directly from wikipedia:</p>
+<p><em>The fallacies of distributed computing are a set of assertions made by L Peter Deutsch and others at Sun Microsystems describing false assumptions that programmers new to distributed applications invariably make.</em></p>
+<p><strong>The fallacies:</strong></p>
+<ol>
+<li><strong>The network is reliable</strong>: The fallacy of making an assumption that the network is reliable, and thus, no effort being put into error handling part by the developer, leading to application stalling in the case of network outage.</li>
+<li><strong>Latency is zero</strong>: The fallacy of assuming the latency between coordinating parties to be zero leading to network congestion, and/or application logic not working as expected, in transactional workloads.</li>
+<li><strong>Bandwidth is infinite</strong>: The fallacy of assuming the availability of infinite bandwidth between cooperating parties. This can lead to overestimating the load handling capacity of the cooperating systems, leading to failure under actual overloaded situations.</li>
+<li><strong>The network is secure</strong>:</li>
+<li>Topology doesn&rsquo;t change</li>
+<li>There is one administrator</li>
+<li>Transport cost is zero</li>
+<li>The network is homogeneous</li>
+<li>We all trust each other</li>
+</ol>
 <hr>
 <h5 id="note">Note</h5>
 <p>Although this article gives good introduction to distributed systems, there are many more concepts that are useful in building distributed systems, better. I&rsquo;m working on <strong>part 2</strong> of this guide that will try to include those in a similarly easy to understand manner.</p>
@@ -488,6 +503,7 @@ It is also fault tolerant and horizontally scalable comparatively much more easi
 <li><a href="https://hevodata.com/learn/data-replication-strategy">https://hevodata.com/learn/data-replication-strategy</a></li>
 <li><a href="https://en.wikipedia.org/wiki/PACELC_theorem">https://en.wikipedia.org/wiki/PACELC_theorem</a></li>
 <li><a href="https://blog.yugabyte.com/four-data-sharding-strategies-we-analyzed-in-building-a-distributed-sql-database/">https://blog.yugabyte.com/four-data-sharding-strategies-we-analyzed-in-building-a-distributed-sql-database/</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing">https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing</a></li>
 </ol>
 
 </div>
