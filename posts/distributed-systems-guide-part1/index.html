@@ -157,7 +157,7 @@
   <polyline points="12 6 12 12 15 15"/>
 
 </svg>
-12 mins read
+13 mins read
 </span>
 
 
@@ -232,7 +232,13 @@ It is also fault tolerant and horizontally scalable comparatively much more easi
 <li>A system that is partition-tolerant can sustain any amount of network failure that doesn’t result in a failure of the entire network. Data records are sufficiently replicated across combinations of nodes and networks to keep the system up through intermittent outages.</li>
 <li>When dealing with modern distributed systems, Partition Tolerance is not an option. It’s a necessity. Hence, we have to trade between Consistency and Availability.</li>
 </ol>
-<h4 id="9-acid-properties">9. ACID Properties</h4>
+<h4 id="9-pacelc-theorem">9. PACELC Theorem</h4>
+<p>This is an extension to <em>CAP theorem</em> and helps to make better decision wherein network is <strong>NOT</strong> partitioned.</p>
+<ol>
+<li>It states that in case of network partitioning (P) in a distributed computer system, one has to choose between availability (A) and consistency (C) (as per the CAP theorem), but else (E), even when the system is running normally in the absence of partitions, one has to choose between latency (L) and consistency (C).</li>
+<li>What this is trying to say is that even when network is functionally in desired state, one has to chose between latency and consistency, and can&rsquo;t have both, to their best possible values.</li>
+</ol>
+<h4 id="10-acid-properties">10. ACID Properties</h4>
 <p>It is a set of properties of database transactions intended to guarantee data validity, despite errors, power failures, and other mishaps. Relational databases are primary candidates of such properties, though other types might also support (partially or fully)</p>
 <ol>
 <li><strong>A: Atomicity</strong>: This property states that a transaction must be treated as an atomic unit, that is, either all of its operations are executed or none. There must be no state in a database where a transaction is left partially completed</li>
@@ -240,7 +246,7 @@ It is also fault tolerant and horizontally scalable comparatively much more easi
 <li><strong>I: Isolation</strong>: In a database system where more than one transaction are being executed simultaneously and in parallel, the property of isolation states that all the transactions will be carried out and executed as if it is the only transaction in the system. No transaction will affect the existence of any other transaction.</li>
 <li><strong>D: Durability</strong>: The database should be durable enough to hold all its latest updates even if the system fails or restarts.</li>
 </ol>
-<h4 id="10-concensus-algorithms">10. Concensus Algorithms</h4>
+<h4 id="11-concensus-algorithms">11. Concensus Algorithms</h4>
 <p>Dictionary definition of the term says:</p>
 <p><em>Consensus is a group discussion where everyone&rsquo;s opinions are heard and understood, and a solution is created that respects those opinions. Consensus is not what everyone agrees to, nor is it the preference of the majority. Consensus results in the best solution that the group can achieve at the time.</em></p>
 <p>In distributed systems, same definition applies. The only difference is in the meaning of the word <strong><code>opinion</code></strong>. The above definition for distributed systems can be stated as:</p>
@@ -250,18 +256,12 @@ It is also fault tolerant and horizontally scalable comparatively much more easi
 <li><strong>Raft</strong>: <a href="https://raft.github.io/">https://raft.github.io/</a></li>
 </ol>
 <p><strong>Note:</strong> Above algorithms are pretty detailed in nature and require their own separate space for them to be properly explained and understood.</p>
-<h4 id="11-consistency-levels">11. Consistency Levels</h4>
+<h4 id="12-consistency-levels">12. Consistency Levels</h4>
 <ol>
 <li><strong>Strong consistency</strong>: After an update completes, all further operations correctly use the new value</li>
 <li><strong>Weak consistency</strong>: Operations after an update completes may not correctly use the new value</li>
 <li><strong>Eventual consistency</strong>: If no new updates are made to an object, at some point in future it will return correct value</li>
 <li><strong>Casual consistency</strong>: Once an updated version is communicated to a process, it is guaranteed to not use older versions</li>
-</ol>
-<h4 id="12-databases-storage-engines">12. Databases Storage Engines</h4>
-<p>A database storage engine is an internal software component that a database server uses to store, read, update, and delete data in the underlying memory and storage systems. Broadly speaking there are 2 types that are used extensively:</p>
-<ol>
-<li><strong>B-Tree Based Engine</strong>: Uses <code>b-tree</code> data structure to hold data. Performs beter with reads. Example databases: MySQL, Postgre, MongoDB, Couchbase, etc.</li>
-<li><strong>Log Structured Merge (LSM) Tree Based Engine</strong>: Uses <code>lsm</code> structure to organize data. Performs better with writes. Example databases: Cassandra, BigTable, Elasticsearch, RocksDB, etc.</li>
 </ol>
 <h4 id="13-concurrency-control">13. Concurrency Control</h4>
 <ol>
@@ -387,7 +387,13 @@ It is also fault tolerant and horizontally scalable comparatively much more easi
 </ol>
 </li>
 </ul>
-<h4 id="17-data-replication-strategies">17. Data Replication Strategies</h4>
+<h4 id="17-database-storage-engines">17. Database Storage Engines</h4>
+<p>A database storage engine is an internal software component that a database server uses to store, read, update, and delete data in the underlying memory and storage systems. Broadly speaking there are 2 types that are used extensively:</p>
+<ol>
+<li><strong>B-Tree Based Engine</strong>: Uses <code>b-tree</code> data structure to hold data. Performs beter with reads. Example databases: MySQL, Postgre, MongoDB, Couchbase, etc.</li>
+<li><strong>Log Structured Merge (LSM) Tree Based Engine</strong>: Uses <code>lsm</code> structure to organize data. Performs better with writes. Example databases: Cassandra, BigTable, Elasticsearch, RocksDB, etc.</li>
+</ol>
+<h4 id="18-data-replication-strategies">18. Data Replication Strategies</h4>
 <ol>
 <li><strong>Log-Based Data Replication</strong></li>
 </ol>
@@ -466,6 +472,7 @@ It is also fault tolerant and horizontally scalable comparatively much more easi
 <li><a href="http://www.agiledata.org/essays/concurrencyControl.html">http://www.agiledata.org/essays/concurrencyControl.html</a></li>
 <li><a href="https://www.tutorialspoint.com/distributed_dbms/distributed_dbms_controlling_concurrency.htm">https://www.tutorialspoint.com/distributed_dbms/distributed_dbms_controlling_concurrency.htm</a></li>
 <li><a href="https://hevodata.com/learn/data-replication-strategy">https://hevodata.com/learn/data-replication-strategy</a></li>
+<li><a href="https://en.wikipedia.org/wiki/PACELC_theorem">https://en.wikipedia.org/wiki/PACELC_theorem</a></li>
 </ol>
 
 </div>
