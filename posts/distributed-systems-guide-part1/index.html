@@ -157,7 +157,7 @@
   <polyline points="12 6 12 12 15 15"/>
 
 </svg>
-18 mins read
+19 mins read
 </span>
 
 
@@ -500,6 +500,54 @@ It is also fault tolerant and horizontally scalable comparatively much more easi
 <li><strong>Job Management</strong>: Scheduled computations disconnected from any individual user requests. These basically form background jobs, for example, ETL jobs</li>
 <li><strong>Singleton Applications</strong>: Limit a specific service to run as the only instance of that service within the entire system. This is the case, for example, when you are migrating data from location to other, and the process is not idempotent.</li>
 </ol>
+<h4 id="22-database-concerns">22. Database Concerns</h4>
+<ol>
+<li>Consistency, availability, and partition tolerance (CAP)</li>
+<li>Robustness and reliability</li>
+<li>Scalability</li>
+<li>Performance and speed</li>
+<li>Partitioning ability</li>
+<li>Distributability</li>
+<li>In-database analytics and monitoring</li>
+<li>Operational and querying capabilities</li>
+<li>Storage management</li>
+<li>Talent pool and availability of relevant skills</li>
+<li>Database integrity and constraints</li>
+<li>Data model flexibility</li>
+<li>Database security</li>
+<li>Database vendor/system funding, stability, community, and level of establishment</li>
+<li>A lot more&hellip;</li>
+</ol>
+<h4 id="23-commonly-used-blocks-in-a-distributed-system">23. Commonly Used Blocks in a Distributed System</h4>
+<ol>
+<li>Load Balancer</li>
+<li>Microservices</li>
+<li>Caching Layers</li>
+<li>Globally Unique ID Generation Service(s)</li>
+<li>Horizontally Scalable Databases</li>
+<li>Schema Registry</li>
+<li>Authentication and Authorization Service</li>
+<li>Service Discovery Provider</li>
+<li>API Gateway</li>
+<li>Message Queues</li>
+<li>Reverse Proxies</li>
+<li>CDN&rsquo;s</li>
+<li>Object Stores</li>
+<li>Batch Jobs (Reports, ETL Pipelines, etc.)</li>
+<li>Logging and System Health Monitoring Dashboards</li>
+</ol>
+<h4 id="design-rules-for-buiding-distributed-systems">Design Rules for Buiding Distributed Systems</h4>
+<ol>
+<li>Design for at least 100% extra scale.</li>
+<li>Avoid bleeding edge technologies. They generally have corner cases and bugs hard to discover in initial days.</li>
+<li>Optimize the design for most important features and/or needs.</li>
+<li>Avoid dependence on specialized softwares/hardwares. Use as much of generally available components as possible. Building abstractions if not available.</li>
+<li>Use caches extensively. They generally provide highest performance/cost ratio.</li>
+<li>Use queues.</li>
+<li>Avoid transactions as much as possible. They are one of the costliest operations that can be performed at scale.</li>
+<li>Avoid IO as much as possible. Do as much processing in-memory.</li>
+<li>Try to achieve idempotence while building distributed services. It makes self-healing much more simple.</li>
+</ol>
 <hr>
 <h5 id="note">Note</h5>
 <p>Although this article gives good introduction to distributed systems, there are many more concepts that are useful in building distributed systems, better. I&rsquo;m working on <strong>part 2</strong> of this guide that will try to include those in a similarly easy to understand manner.</p>
@@ -519,6 +567,7 @@ It is also fault tolerant and horizontally scalable comparatively much more easi
 <li><a href="https://en.wikipedia.org/wiki/PACELC_theorem">https://en.wikipedia.org/wiki/PACELC_theorem</a></li>
 <li><a href="https://blog.yugabyte.com/four-data-sharding-strategies-we-analyzed-in-building-a-distributed-sql-database/">https://blog.yugabyte.com/four-data-sharding-strategies-we-analyzed-in-building-a-distributed-sql-database/</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing">https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing</a></li>
+<li><a href="https://www.innoarchitech.com/blog/how-choose-right-database-system-relational-rdbms-vs-nosql-vs-newsql">https://www.innoarchitech.com/blog/how-choose-right-database-system-relational-rdbms-vs-nosql-vs-newsql</a></li>
 </ol>
 
 </div>
