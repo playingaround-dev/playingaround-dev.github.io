@@ -231,6 +231,7 @@ It is also fault tolerant and horizontally scalable comparatively much more easi
 <li>The theorem helps us to decide what is more importannt for our current use-case. For transactional data, the choice is consistency, while for high throughput data that can deal with a little lag (like analytics data), consistency can be traded off to achieve better availability, for given associated costs.</li>
 <li>A system that is partition-tolerant can sustain any amount of network failure that doesn’t result in a failure of the entire network. Data records are sufficiently replicated across combinations of nodes and networks to keep the system up through intermittent outages.</li>
 <li>When dealing with modern distributed systems, Partition Tolerance is not an option. It’s a necessity. Hence, we have to trade between Consistency and Availability.</li>
+<li>A variant of this is <strong>BASE theorem</strong> which effectively trades away <code>consistency</code> for other properties, effectively, eventual consistency while gaining far greater availability and scalability. This stands for <code>Basically Available Soft State and Eventually Consistent</code>.</li>
 </ol>
 <h4 id="9-pacelc-theorem">9. PACELC Theorem</h4>
 <p>This is an extension to <em>CAP theorem</em> and helps to make better decision wherein network is <strong>NOT</strong> partitioned.</p>
@@ -491,13 +492,13 @@ It is also fault tolerant and horizontally scalable comparatively much more easi
 <li><strong>API Gateway</strong>: Provides additional services like proxying, protocol translation, and other management functions on top of API&rsquo;s exposed by participating (micro)services</li>
 <li><strong>Security Concerns</strong>: Access-policy definition and implementation in a consistent manner across all participating (micro)services</li>
 <li><strong>Centralized Logging</strong>: Need to have a centralized system to gather application/DB logs, and allow querying on top of it to assist with troubleshooting of problems and help with overall optimization of the system</li>
-<li><strong>Centralized Metrics</strong>: Same as <code>centralized logging</code> above, but, with metrics. Allows monitoring health and performance of overall system from a central place. Alerts can then be setup and triggered as and when their is any deviation from expected behavior of any component of the system</li>
-<li><strong>Distributed Tracing</strong>: Allows to trace paths taken by data while it traverses participating services. These paths can grow pretty complex, and hence the need for this</li>
+<li><strong>Centralized Metrics</strong>: Same as <code>centralized logging</code> above, but, with metrics. Allows monitoring health and performance of overall system from a central place. Alerts can then be setup and triggered as and when there is any deviation from expected behavior of any component of the system</li>
+<li><strong>Distributed Tracing</strong>: Allows to trace paths taken by data while it traverses participating services. These paths can grow pretty complex, and hence, the need</li>
 <li><strong>Rasilience and Fault Tolerance</strong>: Distributed systems must be capable of auto-routing around failures, and be capable of routing requests to the service instance that will provide an optimum response</li>
 <li><strong>Autoscaling and Self-Healing</strong>: Distributed systems respond to higher load by scaling horizontally: the platform must detect and auto-respond to such conditions. Furthermore, the system needs to detect failures and attempt auto-restarts without operator input</li>
 <li><strong>Packaging, Deployment and Scheduling</strong>: Large-scale systems require robust package management, and deployment systems to manage rolling or blue-green deployments, and rollbacks if necessary. A scheduler helps determine which particular execution node a new set of services can be deployed to based on current conditions</li>
-<li><strong>Job Management</strong>: Scheduled computations disconnected from any individual user requests. These basically form background jobs, kind of like ETL ones</li>
-<li><strong>Singleton Applications</strong>: Limit a specific service to run as the only instance of that service within the entire system. This is the case, for example, when you are migrating data from location to other, and this process is not idempotent.</li>
+<li><strong>Job Management</strong>: Scheduled computations disconnected from any individual user requests. These basically form background jobs, for example, ETL jobs</li>
+<li><strong>Singleton Applications</strong>: Limit a specific service to run as the only instance of that service within the entire system. This is the case, for example, when you are migrating data from location to other, and the process is not idempotent.</li>
 </ol>
 <hr>
 <h5 id="note">Note</h5>
