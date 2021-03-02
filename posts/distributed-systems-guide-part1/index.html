@@ -157,7 +157,7 @@
   <polyline points="12 6 12 12 15 15"/>
 
 </svg>
-14 mins read
+15 mins read
 </span>
 
 
@@ -457,11 +457,12 @@ It is also fault tolerant and horizontally scalable comparatively much more easi
 <li><strong>Key-Based Incremental Data Replication</strong>: This replication strategy leverages the replication key column to identify the new and updated data. A replication key column is a column holding unique values across all dataset. It then carries out the replication process for records that house the updated replication keys.</li>
 </ol>
 <h4 id="19-data-sharding-techniques">19. Data sharding techniques</h4>
+<p>Look at the section <code>A few imortant terms</code> above to learn about sharding</p>
 <ol>
-<li>Algorithmic Sharding</li>
-<li>Linear Hash Sharding</li>
-<li>Consistent Hash Sharding</li>
-<li>Range Sharding</li>
+<li><strong>Algorithmic Sharding:</strong> This involved computing hash of the key in a record and computing modulo-n of that hash where n is the number of nodes. The advantage is of elimation of the need for a centralized coordinator. Disadvantage is that of massive shuffling of data needed when the number of nodes change.</li>
+<li><strong>Linear Hash Sharding:</strong> Almost similar to algorithmic sharding with the only difference in hash function used. Here, the hash function used generates linear hashes, i.e., it maintains the relative ordering of input values while changing their distribution spacing. In other words, it minimizes <code>cross-node jumps</code> to minimal, thus, reducing data shuffling that&rsquo;s needed. The problem of this technique is the formation of hotspots due to the impossibility of picking up good shard split boundaries ahead of time.</li>
+<li><strong>Consistent Hash Sharding:</strong> This technique makes use of consistent hashing technique to distribute data across nodes. With this, there are many more shards than the actual number of nodes, and a separate mapping table tracks the assignment of these shards to the nodes. When adding new nodes, a subset of shards from existing nodes can be efficiently moved into the new nodes without requiring a massive data reassignment. Disadvantage of this is in making range queries, which become inefficient. This hashing technique is widely used across many nosql databases.</li>
+<li><strong>Range Sharding:</strong> This sharding technique involves splitting the rows of a table into contiguous ranges that respect the sort order of the table based on the primary key column values. The tables that are range sharded usually start out with a single shard. As data is inserted into the table, it is dynamically split into multiple shards because it is not always possible to know the distribution of keys in the table ahead of time. This sharding technique, though, suffers from the problem of initially-warm-nodes which, initially, take-in the bulk of the query load. Also, this do lead to hotspots as some of the rows for keys(primary) and definitely much more used than others, and since these, with high probability are on same node, leads to hotspots, degrading overall performance of the system.</li>
 </ol>
 <h4 id="20-hashing-techniques-for-load-balancing-in-distributed-systems">20. Hashing techniques for load balancing in distributed systems</h4>
 <ol>
