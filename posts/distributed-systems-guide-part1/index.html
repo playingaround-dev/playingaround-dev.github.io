@@ -157,7 +157,7 @@
   <polyline points="12 6 12 12 15 15"/>
 
 </svg>
-15 mins read
+16 mins read
 </span>
 
 
@@ -476,12 +476,12 @@ It is also fault tolerant and horizontally scalable comparatively much more easi
 <li><strong>The network is reliable</strong>: The fallacy of making an assumption that the network is reliable, and thus, no effort being put into error handling part by the developer, leading to application stalling in the case of network outage.</li>
 <li><strong>Latency is zero</strong>: The fallacy of assuming the latency between coordinating parties to be zero leading to network congestion, and/or application logic not working as expected, in transactional workloads.</li>
 <li><strong>Bandwidth is infinite</strong>: The fallacy of assuming the availability of infinite bandwidth between cooperating parties. This can lead to overestimating the load handling capacity of the cooperating systems, leading to failure under actual overloaded situations.</li>
-<li><strong>The network is secure</strong>:</li>
-<li>Topology doesn&rsquo;t change</li>
-<li>There is one administrator</li>
-<li>Transport cost is zero</li>
-<li>The network is homogeneous</li>
-<li>We all trust each other</li>
+<li><strong>The network is secure</strong>: This fallacy can lead to data being intercepted by hackers.</li>
+<li><strong>Topology doesn&rsquo;t change</strong>: This fallacy can lead to changes in bandwidth and latency, thus, affecting SLA&rsquo;s.</li>
+<li><strong>There is one administrator</strong>: This can lead to changes that can make cooperating nodes alltogether unreachable.</li>
+<li><strong>Transport cost is zero</strong>: This is many a times the ignored one. But, at least with cloud vendors, do constitute significantly to overall cloud costs.</li>
+<li><strong>The network is homogeneous</strong>: This is not so relevant today, but was at a time when proprietary protocols were prominently used in communications across variety of clients that can connect to your services. This might be much more prominent in devices that belong to very niche category of services, for example, satellite communications.</li>
+<li><strong>We all trust each other</strong>: This is becoming more and more relevent with governments these days actively spoofing over communications by it&rsquo;s citizens. This effectively means to make an assumption that the party you are talking to is the one stating who it is, and is fact, is someone else making a false claim for someone else.</li>
 </ol>
 <hr>
 <h5 id="note">Note</h5>
