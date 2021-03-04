@@ -482,7 +482,7 @@ It is also fault tolerant and horizontally scalable comparatively much more easi
 <li><strong>There is one administrator</strong>: This can lead to changes that can make cooperating nodes alltogether unreachable.</li>
 <li><strong>Transport cost is zero</strong>: This is many a times the ignored one. But, at least with cloud vendors, do constitute significantly to overall cloud costs.</li>
 <li><strong>The network is homogeneous</strong>: This is not so relevant today, but was at a time when proprietary protocols were prominently used in communications across variety of clients that can connect to your services. This might be much more prominent in devices that belong to very niche category of services, for example, satellite communications.</li>
-<li><strong>We all trust each other</strong>: This is becoming more and more relevent with governments these days actively spoofing over communications by it&rsquo;s citizens. This effectively means to make an assumption that the party you are talking to is the one stating who it is, and is fact, is someone else making a false claim for someone else.</li>
+<li><strong>We all trust each other</strong>: This is becoming more and more relevent with governments these days actively spoofing over communications by it&rsquo;s citizens. This effectively means to make an assumption that the party you are talking to is the one stating who it is, but, is in fact, is someone else, impersonating the one you actually would like to communicate.</li>
 </ol>
 <h4 id="21-microservices-concerns">21. Microservices Concerns</h4>
 <ol>
@@ -543,10 +543,39 @@ It is also fault tolerant and horizontally scalable comparatively much more easi
 <li>Optimize the design for most important features and/or needs.</li>
 <li>Avoid dependence on specialized softwares/hardwares. Use as much of generally available components as possible. Build abstractions if not available.</li>
 <li>Use caches extensively. They generally provide highest performance/cost ratio.</li>
-<li>Use queues.</li>
+<li>Use queues for transient data.</li>
 <li>Avoid transactions as much as possible. They are one of the costliest operations that can be performed at scale.</li>
 <li>Avoid IO as much as possible. Do as much processing in-memory.</li>
 <li>Try to achieve idempotence while building distributed services. It makes self-healing much more simple.</li>
+<li>Figure out the numbers of the scale before you set out to design the system. Make sure to have numbers for following:
+<ul>
+<li>
+<ol>
+<li>Needed Bandwidth</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>Desired Throughput</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>Highest tolerable latency</li>
+</ol>
+</li>
+<li>
+<ol start="4">
+<li>Persistent storage needed</li>
+</ol>
+</li>
+<li>
+<ol start="5">
+<li>Request handling capacity (reads/write)</li>
+</ol>
+</li>
+</ul>
+</li>
 </ol>
 <hr>
 <h5 id="note">Note</h5>
